@@ -1,0 +1,22 @@
+.navHeader{
+    background-color: #39D330;   
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-right: 5vw;
+}
+
+.navButton{
+    background-color: rgba(0,0,0,0);
+    border: 0;
+    color: white;
+    width: 90px;
+    height: 3vh;
+}
+
+#snail{
+    height: 4.5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
