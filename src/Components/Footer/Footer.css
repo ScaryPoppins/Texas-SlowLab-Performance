@@ -1,0 +1,10 @@
+.footer{
+    width: 100vw;
+    height: 30vh;
+    background-image: url('http://txspeedlabperformance.com/wp-content/themes/advance-automobile-pro/assets/images/footerbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: white;
+
+}

@@ -5,9 +5,9 @@ import './Contact.css';
 
 function Contact() {
   return (
-    <div className="Contact">
+    <main className="Contact">
       Contact
-    </div>
+    </main>
   );
 }
 

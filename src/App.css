@@ -3,3 +3,6 @@
   background-color: #BABABA;
   min-height: 100vh;
 }
+main {
+  min-height: 70vh;
+}

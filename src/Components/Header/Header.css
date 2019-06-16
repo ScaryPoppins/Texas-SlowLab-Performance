@@ -4,7 +4,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-right: 5vw;
+    padding-right: 10vw;
 }
 
 .navButton{
@@ -18,5 +18,5 @@
 #snail{
     height: 4.5vh;
     margin-left: 10vw;
-    margin-right: 10vw;
+    margin-right: 30vw;
 }
