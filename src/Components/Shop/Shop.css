@@ -1,0 +1,11 @@
+.dashboard{
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 6vh; */
+    margin-bottom: 6vh;
+    padding-bottom: 6vh;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    flex-wrap: wrap;
+}
+

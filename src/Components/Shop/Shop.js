@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import ShopCard from './ShopCard'
+import AddCard from './AddCard'
 import axios from 'axios'
+import './Shop.css';
+import { loadCSS } from 'fg-loadcss';
 
 class Shop extends Component{
     constructor(props){
@@ -8,7 +11,9 @@ class Shop extends Component{
         this.state = {
             products:[]
         }
+    this.deleteOne = this.deleteOne.bind(this)
     }
+
 
 
     componentDidMount() {
@@ -18,6 +23,14 @@ class Shop extends Component{
         .catch(error => console.log(`Dashboard-axiosGet: ${error}`))
     }
 
+    deleteOne(id) {
+        axios
+            .delete(`/api/shop/${id}`)
+            .then(() => this.componentDidMount())
+            .catch(error => console.log(`Dashboard-axiosDelete: ${error}`))
+    }
+    
+
 
 
     render(){
@@ -25,29 +38,33 @@ class Shop extends Component{
         let { products } = this.state
         let displayProducts = products.map(slow_shop => {
         return(
+            <div>
         <ShopCard 
         key={slow_shop.id}
         id={slow_shop.id}
-        name={slow_shop.title}
-        image={slow_shop.image_url}
+        title={slow_shop.title}
+        image= {slow_shop.image_url}
         description={slow_shop.description}
         features={slow_shop.features}
         category={slow_shop.category}
         tags={slow_shop.tags}
         reviews={slow_shop.reviews}
+        deleteOneFn={this.deleteOne}
         />
-    
+        
+        </div>
         )
+        
         })
-        console.log(displayProducts)
+    
         return(
             <main>
                 
-            <div className='Dashboard'>
-                shop test
+            <div className='dashboard'>
                 {products ? displayProducts : 'No products yet'}
+                <AddCard />
             </div>
-                <ShopCard/>
+                
             </main>
         )
     }
