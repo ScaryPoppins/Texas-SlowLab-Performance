@@ -45,6 +45,21 @@ render(){
                 </div>
             </Carousel>
     </div>
+
+    <div className = 'home-truck'>
+
+
+    </div>
+    <div className = 'home-lambo'>
+
+
+    </div>
+
+
+
+
+
+
     </div>
         );
     }

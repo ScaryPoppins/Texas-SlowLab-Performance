@@ -1,8 +1,28 @@
-.about{
-    width: 40vw;
-    height: 40vh;
+.About{
+    margin-left: 15vw;
+    margin-right: 15vw;
 }
 .mapz{
     width: 40vw;
     height: 40vh;
+}
+.swaps-sentence{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-us-sect{
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+
+}
+
+.about-img{
+    max-width: 25vw;
+    max-height: 35vh;
+    margin-bottom: 2vh;
 }

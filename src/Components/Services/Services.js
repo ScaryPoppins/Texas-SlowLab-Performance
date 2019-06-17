@@ -1,22 +1,29 @@
-import React, {Component} from 'react';
-
-class Dashboard extends Component{
-    constructor(){
-        super()
-        this.state = {
-
-        }
-    }
+import React from 'react';
+import './Services.css';
 
 
 
-    render(){
-        return(
-            <main>
+
+function Services (){
+     return(
+        <main>
                 Services
-            </main>
-        )
-    }
+
+
+
+        <div className = 'services-widebody'>
+        </div>        
+
+        <div className = 'services-wing'>
+        </div>    
+
+        <div className = 'services-exhaust'>
+        
+        </div>    
+
+
+        </main>
+    )
 }
 
-export default Dashboard;
+export default Services;
