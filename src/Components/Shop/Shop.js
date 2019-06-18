@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import ShopCard from './ShopCard'
-import AddCard from './AddCard'
+import AddCardButton from './AddCardButton'
 import axios from 'axios'
 import './Shop.css';
-import { loadCSS } from 'fg-loadcss';
+
 
 class Shop extends Component{
     constructor(props){
@@ -47,8 +47,8 @@ class Shop extends Component{
         description={slow_shop.description}
         features={slow_shop.features}
         category={slow_shop.category}
-        tags={slow_shop.tags}
         reviews={slow_shop.reviews}
+        price={slow_shop.price}
         deleteOneFn={this.deleteOne}
         />
         
@@ -62,7 +62,7 @@ class Shop extends Component{
                 
             <div className='dashboard'>
                 {products ? displayProducts : 'No products yet'}
-                <AddCard />
+                <AddCardButton />
             </div>
                 
             </main>

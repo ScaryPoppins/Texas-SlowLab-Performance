@@ -24,7 +24,7 @@ render(){
             <Carousel 
             className='carosel' 
             autoPlay= 'true'
-            interval= "200"
+            interval= '3000'
             infiniteLoop= 'true'
             >
                 <div className = 'carosel-img-container'>

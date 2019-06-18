@@ -28,18 +28,18 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '56.25%', // 16:9
   },
   expand: {
-    transform: 'rotate(0deg)',
+    transform: 'rotate(360deg)',
     marginLeft: 'auto',
     transition: theme.transitions.create('transform', {
       duration: theme.transitions.duration.shortest,
     }),
   },
   expandOpen: {
-    transform: 'rotate(180deg)',
+    transform: 'rotate(540deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
+//   avatar: {
+//     backgroundColor: red[500],
+//   },
   root: {
     color: theme.palette.text.primary,
   },
@@ -60,13 +60,15 @@ export default function ShopCard(props) {
 
   return (
     <Card className={classes.card}
-       style={{width: '300px', height: '390px', marginTop: '6vh'}}>
+       style={{width: '300px', minHeight: '390px', marginTop: '6vh'}}>
       <CardHeader
         avatar={
           <Avatar aria-label="Sale Item" className={classes.avatar}>
             Slow
           </Avatar>
         }
+
+
         action={
           <IconButton aria-label="Info">
             <MoreVertIcon />
@@ -98,12 +100,22 @@ export default function ShopCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="Add to favorites">
+{/* bottom left corder      */}
+
+        <p>{props.price}</p>
+
+
+        {/* <IconButton aria-label="Add to favorites">
           <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="Share">
+        </IconButton> */}
+
+
+{/* share with social media */}
+        {/* <IconButton aria-label="Share">
           <ShareIcon />
-        </IconButton>
+        </IconButton> */}
+
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
