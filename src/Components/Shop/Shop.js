@@ -12,15 +12,13 @@ class Shop extends Component{
             products:[]
         }
     this.deleteOne = this.deleteOne.bind(this)
+    this.getProducts = this.getProducts.bind(this)
     }
 
 
 
     componentDidMount() {
-        axios
-        .get('/api/shop')
-        .then(response => this.setState({ products: response.data }))
-        .catch(error => console.log(`Dashboard-axiosGet: ${error}`))
+        this.getProducts()
     }
 
     deleteOne(id) {
@@ -30,8 +28,20 @@ class Shop extends Component{
             .catch(error => console.log(`Dashboard-axiosDelete: ${error}`))
     }
     
+    getProducts() {
+        axios
+        .get('/api/shop')
+        .then(response => this.setState({ products: response.data }))
+        .catch(error => console.log(`Dashboard-axiosGet: ${error}`))
 
+    }
 
+    // editOne(id){
+    //     axios
+    //         .delete(`/api/shop/${id}`)
+    //         .then(() => this.componentDidMount())
+    //         .catch(error => console.log(`Dashboard-axiosDelete: ${error}`))
+    // }
 
     render(){
         
@@ -43,13 +53,14 @@ class Shop extends Component{
         key={slow_shop.id}
         id={slow_shop.id}
         title={slow_shop.title}
-        image= {slow_shop.image_url}
+        image_url= {slow_shop.image_url}
         description={slow_shop.description}
         features={slow_shop.features}
         category={slow_shop.category}
         reviews={slow_shop.reviews}
         price={slow_shop.price}
         deleteOneFn={this.deleteOne}
+        editOneFn={this.editOne}
         />
         
         </div>
@@ -62,7 +73,7 @@ class Shop extends Component{
                 
             <div className='dashboard'>
                 {products ? displayProducts : 'No products yet'}
-                <AddCardButton />
+                <AddCardButton getProducts={this.getProducts}/>
             </div>
                 
             </main>

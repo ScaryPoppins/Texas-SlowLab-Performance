@@ -18,6 +18,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 import {Link} from 'react-router-dom';
 import './Shop.css';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import EditFormModule from './EditFormModule'
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -61,36 +63,31 @@ export default function ShopCard(props) {
   return (
     <Card className={classes.card}
        style={{width: '300px', minHeight: '390px', marginTop: '6vh'}}>
+
       <CardHeader
         avatar={
-          <Avatar aria-label="Sale Item" className={classes.avatar}>
-            Slow
-          </Avatar>
+            <Avatar alt="Remy Sharp" 
+            src="https://cdn3.iconfinder.com/data/icons/various-reactions-when-talking-on-phone/280/talking-phone-reaction-007-512.png" 
+            className={classes.avatar} />
         }
+        
+//potential add to cart icon
+        // action={
+        //     <Link to='/shop' onClick={() => props.deleteOneFn(props.id)}>
+        //     <IconButton aria-label="Info">
+        //       <MoreVertIcon />
+        //     </IconButton>
+        //   </Link>
+        // }
 
-
-        action={
-          <IconButton aria-label="Info">
-            <MoreVertIcon />
-          </IconButton>
-        }
-
-//delete
-        action={
-        <Link to='/shop' onClick={() => props.deleteOneFn(props.id)}>
-            <IconButton  aria-label="Delete" >
-                <DeleteOutlinedIcon />
-            </IconButton>
-        </Link>
-        }
 
         title= {props.title} 
         subheader={props.category}
-      />
-   
+ 
+     />     
       <CardMedia
         className={classes.media}
-        image= {props.image}
+        image= {props.image_url}
         title="sale image"
       />
       <CardContent>
@@ -102,18 +99,42 @@ export default function ShopCard(props) {
       <CardActions disableSpacing>
 {/* bottom left corder      */}
 
-        <p>{props.price}</p>
-
-
         {/* <IconButton aria-label="Add to favorites">
           <FavoriteIcon />
         </IconButton> */}
-
 
 {/* share with social media */}
         {/* <IconButton aria-label="Share">
           <ShareIcon />
         </IconButton> */}
+
+
+
+{/* delete button */}
+        <Link to='/shop' onClick={() => props.deleteOneFn(props.id)}>
+            <IconButton  aria-label="Delete" >
+                <DeleteOutlinedIcon />
+            </IconButton>
+        </Link>
+
+{/* old edit button */}
+        {/* <Link to='/shop' onClick={() => props.editOneFn(props.id)}>
+          <IconButton aria-label="Info">
+            <MoreVertIcon />
+          </IconButton>
+        </Link> */}
+
+
+{/* new edit button */}
+
+
+<EditFormModule/>
+
+
+
+
+        <h2> ${props.price}</h2>
+
 
 
         <IconButton

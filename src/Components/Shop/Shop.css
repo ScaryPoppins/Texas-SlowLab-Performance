@@ -9,3 +9,7 @@
     flex-wrap: wrap;
 }
 
+.MuiCardActions-root{
+    display: flex;
+    justify-content: center;
+}

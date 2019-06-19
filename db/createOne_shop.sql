@@ -1,7 +1,7 @@
 INSERT INTO slow_shop
-(title, image_url, description, features, category, tags, price)
+(title, image_url, category, price, description, features)
 
-VALUES($1, $2, $3, $4, $5, $6, $7);
+VALUES($1, $2, $3, $4, $5, $6);
 
 SELECT * FROM slow_shop;
 

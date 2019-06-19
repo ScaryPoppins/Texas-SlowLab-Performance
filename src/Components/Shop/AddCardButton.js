@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import './Shop.css';
 import AddFormModule from './AddFormModule'
+import { getThemeProps } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
 
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 
 }));
 
-export default function AddCardButton() {
+export default function AddCardButton(props) {
   const classes = useStyles();
 
   React.useEffect(() => {
@@ -45,7 +46,7 @@ export default function AddCardButton() {
 
         <div className={classes.root}></div>
 
-    <AddFormModule/>
+    <AddFormModule getProducts = {props.getProducts}/>
     </Card>  
     
 

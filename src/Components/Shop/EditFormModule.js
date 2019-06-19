@@ -12,7 +12,8 @@ import { loadCSS } from 'fg-loadcss';
 import { makeStyles } from '@material-ui/core/styles';
 import {green, red} from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
-
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+import IconButton from '@material-ui/core/IconButton';
 
 
 const useStyles = makeStyles(theme => ({
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
       },
     }));
 
-export default function AddFormModule(props) {
+export default function EditFormModule(props) {
   const [open, setOpen] = React.useState(false);
   const [title, setTitle] = React.useState();
   const [image_url, setImage] = React.useState();
@@ -82,17 +83,27 @@ export default function AddFormModule(props) {
   return (
     <div>
 
-{/* plus button */}
+{/* plus button 
       <Icon className={clsx(classes.iconHover, 'fa fa-plus-circle')} 
         color="disabled" 
         style={{ fontSize: 75}}
         onClick={handleClickOpen}
-        />
+        /> */}
 
+
+        
+{/* EDIT button      */}
+          <IconButton aria-label="Info"
+          onClick={() => props.editOneFn(props.id)}
+          onClick={handleClickOpen}
+          >
+            <MoreVertIcon />
+          </IconButton>
+  
 
       <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
           
-        <DialogTitle id="form-dialog-title">Add sale item</DialogTitle>
+        <DialogTitle id="form-dialog-title">EDIT sale item</DialogTitle>
 
         <DialogContent style={{ paddingLeft: "4vw", paddingRight: "4vw"}}>
           <DialogContentText>
