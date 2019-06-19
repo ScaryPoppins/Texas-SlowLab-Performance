@@ -51,6 +51,7 @@ class Shop extends Component{
             <div>
         <ShopCard 
         key={slow_shop.id}
+        slow_shop={slow_shop}
         id={slow_shop.id}
         title={slow_shop.title}
         image_url= {slow_shop.image_url}
@@ -61,6 +62,7 @@ class Shop extends Component{
         price={slow_shop.price}
         deleteOneFn={this.deleteOne}
         editOneFn={this.editOne}
+        getProducts={this.getProducts}
         />
         
         </div>

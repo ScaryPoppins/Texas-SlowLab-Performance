@@ -128,15 +128,13 @@ export default function ShopCard(props) {
 {/* new edit button */}
 
 
-<EditFormModule/>
+<EditFormModule getProducts={props.getProducts} slow_shop={props.slow_shop}/>
 
-
-
+{/* Price */}
 
         <h2> ${props.price}</h2>
 
-
-
+{/* Other card info */}
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

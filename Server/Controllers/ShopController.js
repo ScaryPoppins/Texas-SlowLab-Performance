@@ -39,6 +39,7 @@ const createOne = (req,res) => {
 
 //update shop
 const updateOne = (req,res) => {
+  console.log(req.body)
   const db = req.app.get('db'),
       { id, title, image_url, category, price, description, features } = req.body;
 

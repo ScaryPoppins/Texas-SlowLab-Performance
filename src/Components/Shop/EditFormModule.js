@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function EditFormModule(props) {
   const [open, setOpen] = React.useState(false);
+  const [id, setId] = React.useState();
   const [title, setTitle] = React.useState();
   const [image_url, setImage] = React.useState();
   const [category, setCategory] = React.useState();
@@ -46,12 +47,13 @@ export default function EditFormModule(props) {
     setOpen(false);
   }
 
-  function handleSubmit(){
+  function handleEditSave(){
     // let { title, image, category, price, description, features, } = ;
 
     axios
-        .post('/api/shop', { title:title, image_url:image_url, category:category, price:price, description:description, features:features })
+        .put('/api/shop', { id:props.slow_shop.id, title:title, image_url:image_url, category:category, price:price, description:description, features:features })
         .then (response => {
+            console.log(response)
             props.getProducts()
         })
         .then(response => {
@@ -83,15 +85,6 @@ export default function EditFormModule(props) {
   return (
     <div>
 
-{/* plus button 
-      <Icon className={clsx(classes.iconHover, 'fa fa-plus-circle')} 
-        color="disabled" 
-        style={{ fontSize: 75}}
-        onClick={handleClickOpen}
-        /> */}
-
-
-        
 {/* EDIT button      */}
           <IconButton aria-label="Info"
           onClick={() => props.editOneFn(props.id)}
@@ -100,6 +93,7 @@ export default function EditFormModule(props) {
             <MoreVertIcon />
           </IconButton>
   
+{/* Pop up EDIT modal */}
 
       <Dialog open={open} onClose={handleCancel} aria-labelledby="form-dialog-title" >
           
@@ -110,6 +104,7 @@ export default function EditFormModule(props) {
             Please enter the following information about your item for sale:
           </DialogContentText>
 
+
 {/* title */}
           <TextField
             autoFocus
@@ -119,6 +114,7 @@ export default function EditFormModule(props) {
             type="title"
             fullWidth
             onChange = {(e) => setTitle(e.target.value)}
+            defaultValue = {props.slow_shop.title}
           />
 {/* image url */}
         <TextField
@@ -129,6 +125,7 @@ export default function EditFormModule(props) {
             type="image_url"
             fullWidth
             onChange = {(e) => setImage(e.target.value)}
+            defaultValue = {props.slow_shop.image_url}
           />
 {/* category */}
         <TextField
@@ -139,6 +136,7 @@ export default function EditFormModule(props) {
             type="category"
             fullWidth
             onChange = {(e) => setCategory(e.target.value)}
+            defaultValue = {props.slow_shop.category}
           />
 {/* price */}
         <TextField
@@ -149,6 +147,7 @@ export default function EditFormModule(props) {
             type="price"
             fullWidth
             onChange = {(e) => setPrice(e.target.value)}
+            defaultValue = {props.slow_shop.price}
           />         
 
 {/* description */}
@@ -160,6 +159,7 @@ export default function EditFormModule(props) {
             type="description"
             fullWidth
             onChange = {(e) => setDescription(e.target.value)}
+            defaultValue = {props.slow_shop.description}
           />
 
 {/* features */}
@@ -171,6 +171,7 @@ export default function EditFormModule(props) {
             type="features"
             fullWidth
             onChange = {(e) => setFeatures(e.target.value)}
+            defaultValue = {props.slow_shop.features}
           />
 
 
@@ -187,8 +188,8 @@ export default function EditFormModule(props) {
           <Button onClick={handleCancel} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleSubmit} color="primary">
-            Submit
+          <Button onClick={handleEditSave} color="primary">
+            Save
           </Button>
         </DialogActions>
       </Dialog>
