@@ -4,6 +4,7 @@ const app = express();
 const massive = require("massive");
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const {getShop, deleteOne, createOne, updateOne} = require('./Controllers/ShopController')
+const {registerUser, loginUser, getUser, logoutUser} = require('./controllers/AuthController');
 
 app.use(express.json());
 
@@ -13,10 +14,34 @@ massive(CONNECTION_STRING).then(db => {
   console.log(`Database is Connected :)`);
 });
 
+//yummy
+// app.use(session({
+//   secret: SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: {
+//       maxAge: 1000 * 60 * 60 * 24 * 7
+//   }
+// }))
 
+
+//auth endpoints
+app.post('/auth/register', registerUser);
+app.post('/auth/login', loginUser);
+app.post('/auth/user', logoutUser);
+app.get('/auth/user', getUser);
+
+
+
+// shop endpoints
 app.get('/api/shop', getShop);
 app.delete('/api/shop/:id', deleteOne);
 app.post('/api/shop', createOne);
 app.put('/api/shop', updateOne)
+
+
+
+
+
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));

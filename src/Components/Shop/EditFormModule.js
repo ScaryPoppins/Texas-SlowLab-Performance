@@ -7,30 +7,34 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import axios from 'axios'
-import clsx from 'clsx';
-import { loadCSS } from 'fg-loadcss';
-import { makeStyles } from '@material-ui/core/styles';
-import {green, red} from '@material-ui/core/colors';
-import Icon from '@material-ui/core/Icon';
+// import clsx from 'clsx';
+
+
+// import { loadCSS } from 'fg-loadcss';
+// import { makeStyles } from '@material-ui/core/styles';
+// import {green} from '@material-ui/core/colors';
+
+
+// import Icon from '@material-ui/core/Icon';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import IconButton from '@material-ui/core/IconButton';
 
 
-const useStyles = makeStyles(theme => ({
-    icon: {
-        margin: theme.spacing(2),
-      },
-      iconHover: {
-        margin: theme.spacing(2),
-        '&:hover': {
-          color: green[800],
-        },
-      },
-    }));
+// const useStyles = makeStyles(theme => ({
+//     icon: {
+//         margin: theme.spacing(2),
+//       },
+//       iconHover: {
+//         margin: theme.spacing(2),
+//         '&:hover': {
+//           color: green[800],
+//         },
+//       },
+//     }));
 
 export default function EditFormModule(props) {
   const [open, setOpen] = React.useState(false);
-  const [id, setId] = React.useState();
+  // const [id, setId] = React.useState();
   const [title, setTitle] = React.useState();
   const [image_url, setImage] = React.useState();
   const [category, setCategory] = React.useState();
@@ -63,13 +67,13 @@ export default function EditFormModule(props) {
 
   }
 
-  const classes = useStyles();
-  React.useEffect(() => {
-    loadCSS(
-      'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
-      document.querySelector('#font-awesome-css'),
-    );
-  }, []);
+  // const classes = useStyles();
+  // React.useEffect(() => {
+  //   loadCSS(
+  //     'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
+  //     document.querySelector('#font-awesome-css'),
+  //   );
+  // }, []);
 
 //   handleSubmit() {
 //     let { title, image, category, price, description, features, } = useState;

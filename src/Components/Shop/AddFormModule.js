@@ -10,7 +10,7 @@ import axios from 'axios'
 import clsx from 'clsx';
 import { loadCSS } from 'fg-loadcss';
 import { makeStyles } from '@material-ui/core/styles';
-import {green, red} from '@material-ui/core/colors';
+import {green} from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
 
 

@@ -7,7 +7,7 @@ function Header() {
   return (
     <div className="navHeader">
         
-    <img id = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/>         
+    <img id = 'snail' alt = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/>         
 
     <Link to="/">
             <button className='navButton'>Home</button>
@@ -32,6 +32,11 @@ function Header() {
     <Link to="/contact">
             <button className='navButton'>Contact Us</button>
     </Link>
+
+    <Link to="/login">
+            <button className='navButton'>Log In</button>
+    </Link>
+
     </div>
   );
 }
