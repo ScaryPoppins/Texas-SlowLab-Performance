@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import './Shop.css';
 import AddFormModule from './AddFormModule'
-import { getThemeProps } from '@material-ui/styles';
+// import { getThemeProps } from '@material-ui/styles';
 
 const useStyles = makeStyles(theme => ({
 

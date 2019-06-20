@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const massive = require("massive");
+const session = require('express-session')
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 const {getShop, deleteOne, createOne, updateOne} = require('./Controllers/ShopController')
 const {registerUser, loginUser, getUser, logoutUser} = require('./controllers/AuthController');
@@ -15,14 +16,14 @@ massive(CONNECTION_STRING).then(db => {
 });
 
 //yummy
-// app.use(session({
-//   secret: SESSION_SECRET,
-//   resave: false,
-//   saveUninitialized: true,
-//   cookie: {
-//       maxAge: 1000 * 60 * 60 * 24 * 7
-//   }
-// }))
+app.use(session({
+  secret: SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+      maxAge: 1000 * 60 * 60 * 24 * 7
+  }
+}))
 
 
 //auth endpoints

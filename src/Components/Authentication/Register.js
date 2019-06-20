@@ -10,7 +10,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -81,7 +81,9 @@ class Register extends Component {
 
 
 
-    registerUser() {
+    registerUser(e) {
+        e.preventDefault()
+        console.log(this.state)
         axios.post('/auth/register', {
             first_name: this.state.first_name,
             last_name: this.state.last_name,
@@ -92,6 +94,11 @@ class Register extends Component {
         .catch(error => console.log('Username / Password combination does not match'))
     }
 
+    renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/' />
+        }
+      }
 
 
 render(){
@@ -99,6 +106,7 @@ render(){
   return (
 
     <div>
+        {this.renderRedirect()}
         <div style={{ height: '7vh'}}></div>
 
     <Container component="main" maxWidth="xs"
@@ -188,7 +196,7 @@ render(){
             className={classes.submit}
             style={{ marginBottom: '1vh',
                      marginTop: '1vh'}}
-            onClick={this.registerUser}
+            onClick={(e) => this.registerUser(e)}
           >
             Sign Up
           </Button>
