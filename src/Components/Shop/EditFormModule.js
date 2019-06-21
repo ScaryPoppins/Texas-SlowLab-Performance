@@ -57,7 +57,7 @@ export default function EditFormModule(props) {
     axios
         .put('/api/shop', { id:props.slow_shop.id, title:title, image_url:image_url, category:category, price:price, description:description, features:features })
         .then (response => {
-            console.log(response)
+            // console.log(response)
             props.getProducts()
         })
         .then(response => {

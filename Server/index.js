@@ -4,7 +4,7 @@ const app = express();
 const massive = require("massive");
 const session = require('express-session')
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
-const {getShop, deleteOne, createOne, updateOne} = require('./Controllers/ShopController')
+const {getShop, deleteOne, createOne, updateOne, addToCart} = require('./Controllers/ShopController')
 const {registerUser, loginUser, getUser, logOutUser} = require('./controllers/AuthController');
 
 app.use(express.json());
@@ -39,6 +39,10 @@ app.get('/api/shop', getShop);
 app.delete('/api/shop/:id', deleteOne);
 app.post('/api/shop', createOne);
 app.put('/api/shop', updateOne)
+
+app.post('/api/cart', addToCart)
+
+
 
 
 

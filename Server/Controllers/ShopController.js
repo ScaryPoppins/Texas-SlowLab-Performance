@@ -16,6 +16,9 @@ const getShop = async (req, res) => {
   };
 
 
+
+
+
 //delete shop
 const deleteOne = (req,res) => {
   const db = req.app.get('db'),
@@ -48,8 +51,21 @@ const updateOne = (req,res) => {
       .catch(error => res.status(500).send(`UPDATEoNE: ${error}`))
 }
 
+// add to cart
+function addToCart(req, res){
+  console.log(req.body)
+  const {product, price} = req.body
+  // const {price} = req.body
+  const db = req.app.get('db')
 
+  // db.get_product(product).then(response => {
+  //     let productObject = response;
+      req.session.user.cart.push(product)
+      req.session.user.total += product.price;
+      res.status(200).json(req.session.user)
+  // })
+}
 
   module.exports = {
-    getShop, deleteOne, createOne, updateOne
+    getShop, deleteOne, createOne, updateOne, addToCart
   };

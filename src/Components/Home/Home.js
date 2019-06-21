@@ -37,7 +37,7 @@ render(){
 
                 <div className = 'carosel-img-container'>
                     <img className = 'carosel-img' 
-                    alt = 'truck image' 
+                    alt = 'truck' 
                     src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/43103816_2164699100435732_6069210842799276032_n.jpg?_nc_cat=111&_nc_oc=AQl-IHj6Uk16EslBRjCdUxwby8KjvMyj03a25ZHOeEqpLoWmG7rBnwslWwEMg7zaZWMGZzIAw_nNoO-4QGoM1xmo&_nc_ht=scontent-dfw5-1.xx&oh=0c6129699abf982e3177ac3243c52ba3&oe=5D825CC2" 
                     />
                     <p className="legend">K20 powered truck.   Hauls less, weighs less.  V4 Power!</p>

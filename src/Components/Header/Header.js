@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import './Header.css';
 import { Link } from "react-router-dom";
 import LogOut from '../Authentication/LogOut'
-import LogIn from '../Authentication/LogIn'
 import RenderToLayer from 'material-ui/internal/RenderToLayer';
 import {connect} from 'react-redux'
 import {getUser} from '../../ducks/reducer'
@@ -37,7 +36,7 @@ render(){
 
 
 
-console.log(this.props);
+// console.log(this.props);
   return (
     <div className="navHeader">
         
@@ -66,7 +65,7 @@ console.log(this.props);
     <Link to="/contact">
             <button className='navButton'>Contact Us</button>
     </Link>
-    
+
 { this.props.user &&  this.props.user.email   ?    
 <LogOut/>        
 
@@ -82,7 +81,7 @@ console.log(this.props);
 }
 }
 const mapStateToProps = state =>{
-        console.log(state);
+        // console.log(state);
         return{
             user: state.user
         }

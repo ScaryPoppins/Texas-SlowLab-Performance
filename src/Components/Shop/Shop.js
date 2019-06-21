@@ -36,6 +36,14 @@ class Shop extends Component{
 
     }
 
+    addToCart(product){
+        axios
+        .post('/api/cart', {product:product})
+        .then(response => console.log(response.data))
+
+    }
+
+
     // editOne(id){
     //     axios
     //         .delete(`/api/shop/${id}`)
@@ -45,7 +53,10 @@ class Shop extends Component{
 
     render(){
         
+
+     //slow_shop is a product that of products   
         let { products } = this.state
+        console.log(products)
         let displayProducts = products.map(slow_shop => {
         return(
             <div>
@@ -63,6 +74,7 @@ class Shop extends Component{
         deleteOneFn={this.deleteOne}
         editOneFn={this.editOne}
         getProducts={this.getProducts}
+        addToCart={this.addToCart}
         />
         
         </div>
