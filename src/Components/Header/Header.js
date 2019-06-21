@@ -1,9 +1,43 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Header.css';
 import { Link } from "react-router-dom";
+import LogOut from '../Authentication/LogOut'
+import LogIn from '../Authentication/LogIn'
+import RenderToLayer from 'material-ui/internal/RenderToLayer';
+import {connect} from 'react-redux'
+import {getUser} from '../../ducks/reducer'
+
+class Header extends Component {
+        constructor() {
+                super();
+                this.state = {
+                    user: {},
+                    loggedIn: false
+                    
+                }
+        }
 
 
-function Header() {
+
+componentDidMount(){
+        this.props.getUser()
+//         // Axios.get('/auth/user')
+//                 // .then(response =>
+//                 //          this.setState({user:response.data}))
+//                 // // .then(response =>   
+//                 // //         this.setState(this.state.loggedIn = true))
+//                 // .catch((error) => console.log(error `in Header componentDidMount`))
+}
+
+
+
+
+
+render(){          
+
+
+
+console.log(this.props);
   return (
     <div className="navHeader">
         
@@ -32,16 +66,29 @@ function Header() {
     <Link to="/contact">
             <button className='navButton'>Contact Us</button>
     </Link>
+    
+{ this.props.user &&  this.props.user.email   ?    
+<LogOut/>        
 
-    <Link to="/login">
-            <button className='navButton'>Log In</button>
-    </Link>
+:
 
+<Link to="/login">
+<button className='navButton'>Log In</button>
+</Link>
+
+}
     </div>
   );
 }
-
-export default Header;
+}
+const mapStateToProps = state =>{
+        console.log(state);
+        return{
+            user: state.user
+        }
+    }
+    
+    export default connect(mapStateToProps, {getUser})(Header);
 
 
 // import React from 'react';

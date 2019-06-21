@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const initialState = {
     loading: false,
-    user: {}, 
+    user: [], 
 
     //Not sure if need these yet!?!?!?!?!?!?!
 
@@ -16,29 +16,40 @@ const GET_USER = 'GET_USER';
 
 
 //Gets user object from auth controller
-export function getUser() {
+export function getUser(userInfo) {
+    console.log(userInfo)
     return {
         type: GET_USER,
-        payload: axios.get('/auth/user').catch((error) => error)
+        payload: userInfo
+
+        // payload: axios.get('/auth/user')
+        // .catch((error) => error)
     }
 }
 
 
 export default function reducer(state = initialState, action) {
-    // console.log(state)
+    console.log(state)
     switch(action.type) {
-        case `${GET_USER}_FULFILLED`:
+        // case `${GET_USER}_FULFILLED`:
+        //     console.log(action.payload)
+        // return {
+        //     ...state,
+        //     loading: false,
+        //     user: action.payload
+        // }
+        case GET_USER:
+            console.log(action.payload)
         return {
             ...state,
-            loading: false,
-            user: action.payload.data
+            user: action.payload
         }
 
-        case `${GET_USER}_PENDING`:
-        return {
-            ...state,
-            loading: true
-        }
+        // case `${GET_USER}_PENDING`:
+        // return {
+        //     ...state,
+        //     loading: true
+        // }
         
         default: return state;
     }

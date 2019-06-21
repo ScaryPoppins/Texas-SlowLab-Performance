@@ -38,10 +38,12 @@ module.exports = {
                         res.status(403).json({error: 'USERNAME_OR_PASSWORD_INCORRECT'})
                     } else {
                         req.session.user = {
-                            email: user[0].email
-                            // ,
-                            // cart: [],
-                            // total: 0
+                            email: user[0].email,
+                            first_name: user[0].first_name,
+                            last_name: user[0].last_name
+                            ,
+                            cart: [],
+                            total: 0
                         }
                         console.log("this is session after user",req.session)
                         res.status(200).json(req.session.user)
@@ -59,7 +61,7 @@ module.exports = {
         }
     },
 
-    logoutUser: (req, res) => {
+    logOutUser: (req, res) => {
         req.session.destroy()
         res.status(200).send(req.session)
     }
