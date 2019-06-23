@@ -39,8 +39,9 @@ app.get('/api/shop', getShop);
 app.delete('/api/shop/:id', deleteOne);
 app.post('/api/shop', createOne);
 app.put('/api/shop', updateOne)
-
 app.post('/api/cart', addToCart)
+
+//cart endpoint
 
 
 

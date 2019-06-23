@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     padding-top: 12vh;
+    z-index: 1;
 }
 
 
@@ -14,9 +15,11 @@
     flex-direction: column;
     max-width: 70vw;
     max-height: 90vh;
+    z-index: 2;
 }
 .carosel-img-container{
     max-height: 80vh;
+    z-index: 1;
     /* object-fit: scale-down; */
 
 
@@ -26,6 +29,7 @@
     max-height: 100%;
     max-height: 75vh;
     object-fit: contain;
+    z-index: 3;
     
 }
 

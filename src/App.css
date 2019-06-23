@@ -9,3 +9,7 @@ main {
   min-height: 80vh;
   padding-top: 6vh;
 }
+summary {
+  min-height: 80vh;
+  padding-top: 6vh;
+}

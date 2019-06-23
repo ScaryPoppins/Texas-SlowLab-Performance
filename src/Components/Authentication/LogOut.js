@@ -22,13 +22,13 @@ class LogOut extends Component {
 
     render() {
         return (
-            <div className="navHeader">
+            // <div className="navHeader">
                 <button 
                 className='navButton'
                 onClick={this.handleLogOut}
 
                 >Log Out</button>
-            </div>
+            // </div>
         )
     }
 }

@@ -9,6 +9,7 @@ import Contact from './Components/Contact/Contact'
 import Register from './Components/Authentication/Register'
 import LogIn from './Components/Authentication/LogIn'
 import Cart from './Components/Cart/Cart'
+import Checkout from './Components/Checkout/Checkout'
 
 
 export default (
@@ -20,9 +21,10 @@ export default (
         <Route path = '/testimonials' component={Testimonials}/>
         <Route path = '/about' component={About}/>
         <Route path = '/contact' component={Contact}/>
-        <Route path={'/login'} component={LogIn} />
-        <Route path={'/register'} component={Register} />
-        <Route path = {'/cart'} component={Cart} />
+        <Route path= '/login' component={LogIn} />
+        <Route path= '/register' component={Register} />
+        <Route path = '/cart' component={Cart} />
+        <Route path = {'/checkout'} component={Checkout} />
 
     </Switch>
 )

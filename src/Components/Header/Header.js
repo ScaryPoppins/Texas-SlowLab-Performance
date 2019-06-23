@@ -2,24 +2,33 @@ import React, {Component} from 'react';
 import './Header.css';
 import { Link } from "react-router-dom";
 import LogOut from '../Authentication/LogOut'
-import Cart from '../Cart/Cart'
-import RenderToLayer from 'material-ui/internal/RenderToLayer';
+// import Cart from '../Cart/Cart'
+// import RenderToLayer from 'material-ui/internal/RenderToLayer';
 import {connect} from 'react-redux'
 import {getUser} from '../../ducks/reducer'
 
 class Header extends Component {
-        constructor() {
-                super();
-                this.state = {
-                    user: {},
-                    loggedIn: false
-                    
-                }
+  constructor() {
+        super();
+        this.state = {
+                user: [],
+                loggedIn: false,
+                menuStatus: 'dropdown-menu-close'
+                
+        }
+  }
+
+  handleClick = () => {
+        if(this.state.menuStatus === 'dropdown-menu-open'){
+                this.setState({menuStatus: 'dropdown-menu-close'})
+        }
+        else {
+                this.setState({menuStatus: 'dropdown-menu-open'})
+        }
         }
 
 
-
-componentDidMount(){
+  componentDidMount(){
         this.props.getUser()
 //         // Axios.get('/auth/user')
 //                 // .then(response =>
@@ -27,7 +36,7 @@ componentDidMount(){
 //                 // // .then(response =>   
 //                 // //         this.setState(this.state.loggedIn = true))
 //                 // .catch((error) => console.log(error `in Header componentDidMount`))
-}
+  }
 
 
 
@@ -39,11 +48,13 @@ render(){
 
 // console.log(this.props);
   return (
-    <div className="navHeader">
-        
-    <img id = 'snail' alt = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/>         
+   <div>    
 
-    {/* <div className = 'button-container'>   */}
+  <div className="navHeader-over700">
+        
+    <img id = 'snail-over700' alt = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/> 
+
+    <div className = 'button-container-over700'>  
     <Link to="/">
             <button className='navButton'>Home</button>
     </Link>
@@ -68,7 +79,8 @@ render(){
             <button className='navButton'>Contact Us</button>
     </Link>
 
-    { this.props.user &&  this.props.user.email   
+        
+    { this.props.user && this.props.user.email   
      ?    
        <LogOut/>
      :
@@ -78,15 +90,94 @@ render(){
     }
 
     <Link to="/cart">
-            <button className='navButton'>Cart</button>
+            <button className='navButton'>
+            {/* <img src="https://cdn.onlinewebfonts.com/svg/img_19666.png" alt="cart"/> */}
+            Cart
+            </button>
     </Link>
 
     {/*button-container close */}
-    {/* </div>    */}
-    
-    {/*button-container close */}
     </div>   
+    {/*button-container close */}
 
+
+
+    </div>  
+{/* ---------OVER 700 MENU--------- */}
+ {/* ---------------------------------------------- */}
+{/* ---------UNDER 700 MENU--------- */}
+
+<div className="navHeader-under700">
+        <button 
+            onClick = {this.handleClick}
+            className = 'menu-button'>
+
+            <img id='hamburger-menu'
+
+                src="http://chesleytravel.com/images/icons/menu.png"></img>
+        </button>
+
+
+
+        <div className={this.state.menuStatus} >
+        <Link to="/">
+            <button className='navButton'>Home</button>
+    </Link>
+
+    <Link to="/services">
+            <button className='navButton'>Services</button>
+    </Link>
+
+    <Link to="/shop">
+            <button className='navButton'>Shop</button>
+    </Link>
+
+    <Link to="/testimonials">
+            <button className='navButton'>Testimonials</button>
+    </Link>
+
+    <Link to="/about">
+            <button className='navButton'>About Us</button>
+    </Link>
+
+    <Link to="/contact">
+            <button className='navButton'>Contact Us</button>
+    </Link>
+
+        
+    { this.props.user && this.props.user.email   
+     ?    
+       <LogOut/>
+     :
+       <Link to="/login">
+         <button className='navButton'>Log In</button>
+       </Link>
+    }
+
+    <Link to="/cart">
+            <button className='navButton'>
+            {/* <img src="https://cdn.onlinewebfonts.com/svg/img_19666.png" alt="cart"/> */}
+            Cart
+            </button>
+    </Link>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div>
+        <img id = 'snail-under700' alt = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/> 
+    </div>
+
+</div>
+</div>   
   );
 }
 }
@@ -107,6 +198,31 @@ const mapStateToProps = state =>{
 // import Tabs from '@material-ui/core/Tabs';
 // import Tab from '@material-ui/core/Tab';
 // import Typography from '@material-ui/core/Typography';
+// import { Link } from "react-router-dom";
+// import LogOut from '../Authentication/LogOut'
+// import {getUser} from '../../ducks/reducer'
+
+
+
+// class Header extends Component {
+//         constructor() {
+//                 super();
+//                 this.state = {
+//                     user: {},
+//                     loggedIn: false
+                    
+//                 }
+//         }
+
+
+
+
+
+
+
+
+
+
 
 // function TabContainer(props) {
 //   return (
@@ -139,6 +255,13 @@ const mapStateToProps = state =>{
 //   },
 // }));
 
+
+// componentDidMount(){
+//         this.props.getUser()
+// };
+
+
+
 // export default function NavTabs() {
 //   const classes = useStyles();
 //   const [value, setValue] = React.useState(0);
@@ -151,14 +274,37 @@ const mapStateToProps = state =>{
 //     <div className={classes.root}>
 //       <AppBar position="static">
 //         <Tabs variant="fullWidth" value={value} onChange={handleChange}>
-//           <LinkTab label="Page One" href="/" />
-//           <LinkTab label="Page Two" href="/services" />
-//           <LinkTab label="Page Three" href="/shop" />
+
+//           <Tab label='Home'  to='/' component={Link} />
+//           <Tab label='Services'  to='/services' component={Link} />
+//           <Tab label='Shop'  to='/shop' component={Link} />
+//           <Tab label='Testimonials'  to='/testimonials' component={Link} />
+//           <Tab label='About Us'  to='/about' component={Link} />
+//           <Tab label='Contact'  to='/contact' component={Link} />
+
+
+
+
+//           { this.props.user && this.props.user.email   
+//         ?    
+//         <LogOut/>
+//         :
+//         <Link to="/login">
+//           <button className='navButton'>Log In</button>
+//         </Link>
+//      }
+
+
+//           <Tab label='Log'  to='/' component={Link} />
+
+
+
+
+//           <Tab label='Cart'  to='/cart' component={Link} />
+  
 //         </Tabs>
 //       </AppBar>
-//       {value === 0 && <TabContainer>Home</TabContainer>}
-//       {value === 1 && <TabContainer>Services</TabContainer>}
-//       {value === 2 && <TabContainer>Shop</TabContainer>}
+
 //     </div>
 //   );
 // }

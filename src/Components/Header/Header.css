@@ -1,16 +1,21 @@
-.navHeader{
+
+/* --------OVER 700 AREA -------- */
+
+.navHeader-over700{
     background-image: url('http://txspeedlabperformance.com/wp-content/themes/advance-automobile-pro/assets/images/footerbg.jpg'); 
     height: 5vh;
+    min-height: 30px;
     display: flex;
     justify-content: flex-end;
+    max-width: 100vw;
     width: 100vw;
     align-items: center;
-    padding-right: 10vw;
+    /* padding-right: 10vw; */
     position: fixed;
     top: 0;
     opacity: 0.8;
 }
-.button-container{
+.button-container-over700{
     display: flex;
     justify-content: space-between;
     width: 55vw;
@@ -26,9 +31,169 @@
     height: 3vh;
 }
 
-#snail{
+#snail-over700{
     height: 4.5vh;
-    margin-left: 5vw;
+    min-height: 28px;
+    margin-left: 3vw;
     position: fixed;
     left: 0;
+}
+
+/* --------OVER 700 AREA -------- */
+/* ----------------------------------------------------------- */
+/* --------UNDER 700 AREA -------- */
+
+
+.navHeader-under700{
+    background-image: url('http://txspeedlabperformance.com/wp-content/themes/advance-automobile-pro/assets/images/footerbg.jpg'); 
+    height: 5vh;
+    min-height: 30px;
+    display: none;
+    justify-content: space-between;
+    max-width: 100vw;
+    width: 100vw;
+    align-items: center;
+    padding-right: 10vw;
+   
+    position: fixed;
+    top: 0;
+    opacity: 0.8;
+}
+
+.menu-button{
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    width: 9%;
+    height: 70%;
+    margin-bottom: 1vh;
+    padding: 0;
+    color: white;
+    display: none;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    border-radius: 5px;
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+#hamburger-menu{
+    height: 5vw;
+    width: 5vw;
+    margin-left: 5vw;
+    
+    min-height: 25px;
+    min-width: 25px;
+    opacity: 1;
+
+
+
+}
+
+#snail-under700{
+    height: 4.5vh;
+    min-height: 28px;
+    min-width: 28px;
+    /* margin-left: 3vw; */
+    display: none;
+    margin-right: 5vw;
+}
+
+
+
+.dropdown-menu-open{
+    animation: openMenu .5s forwards linear;
+    color: white;
+    width: 40%;
+    background-image: url('http://txspeedlabperformance.com/wp-content/themes/advance-automobile-pro/assets/images/footerbg.jpg'); 
+    position: absolute;
+    top: 6vh;
+    height: 40vh;
+    z-index: 100;
+    flex-direction: column;
+}
+#under700-text{
+    margin-left: 10vw;
+    animation: under700-text .5s forwards linear;
+}
+.dropdown-menu-close{
+    animation: closeMenu .5s forwards linear;
+    display: none;
+}
+  
+@keyframes under700-text {
+    from { height: 0vh;} 
+    to {height: 2vh;}
+    }
+  @keyframes openMenu {
+  from { height: 0vh;} 
+  to {height: 22vh;}
+  }
+  @keyframes closeMenu {
+    from { height: 25vh;} 
+    to {height: 2vh;}
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------UNDER 700 AREA -------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 700px) {
+    .navHeader-over700{
+        display: none;
+    }
+    .button-container-over700{
+        display: none;
+    }
+    #snail-over700{
+        display: none;
+    }
+
+
+
+    .navHeader-under700{
+        display: flex;
+    }
+    .menu-button {
+        display: flex;
+        justify-content: flex-start;
+      }
+      #snail-under700{
+        display: flex;
+    }
 }

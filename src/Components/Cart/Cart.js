@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {getUser, removeFromCart} from '../../ducks/reducer';
+import {getUser} from '../../ducks/reducer';
 import './Cart.css'
 import CartCard from './CartCard'
+
 
 class Cart extends Component {
     constructor(props) {
@@ -100,7 +101,7 @@ class Cart extends Component {
 
 
                     <div className = 'cart-checkout'>
-                      <Link to="/">
+                      <Link to="/checkout">
                         <button className= 'cart-checkout-button'
                         >
                           Checkout

@@ -5,7 +5,7 @@
 }
 
 .cart-card-product{
-    width: 55%;
+    width: 45%;
     font-size: 1rem;
     display: flex;
     align-items: center;
@@ -13,14 +13,40 @@
     border-bottom: 1px dotted #E0E0E0;
 }
 
+
+
+/* ---------------------------------------- */
+
 .cart-card-quantity{
-    width: 20%;
+    width: 22%;
     font-size: 1rem;
     display: flex;
     align-items: center;
-    padding-left: 2vw;
+    padding-right: 3vw;
     border-bottom: 1px dotted #E0E0E0;
+    justify-content: center;
 }
+.cart-card-quantity-remove{
+    width: 15%;
+}
+
+.cart-card-quantity-amount{
+    width: 33%;
+}
+
+.cart-card-quantity-add{
+    width: 15%;
+}
+
+.quantity-button{
+    background-color: rgba(0,0,0,0);
+    border: 1px dotted #F0F0F0;
+    border-radius: 50px;
+}
+
+
+/* ---------------------------------------- */
+
 
 .cart-card-price{
     width: 15%;
