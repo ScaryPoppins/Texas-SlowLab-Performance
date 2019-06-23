@@ -10,12 +10,10 @@ import store from './ducks/store'
 
 ReactDOM.render(
     <HashRouter>
-<Provider store={store}>
-
-        <App />
-    
-</Provider>
-</HashRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </HashRouter>
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

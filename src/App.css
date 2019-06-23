@@ -3,7 +3,9 @@
   background-color: #BABABA;
   /* background-color: #EDEDEE; */
   min-height: 100vh;
+  /* width: 100vw; */
 }
 main {
-  min-height: 70vh;
+  min-height: 80vh;
+  padding-top: 6vh;
 }

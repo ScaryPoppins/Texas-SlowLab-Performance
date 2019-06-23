@@ -1,22 +1,34 @@
 .navHeader{
-    background-color: #39D330;   
+    background-image: url('http://txspeedlabperformance.com/wp-content/themes/advance-automobile-pro/assets/images/footerbg.jpg'); 
     height: 5vh;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    width: 100vw;
     align-items: center;
     padding-right: 10vw;
+    position: fixed;
+    top: 0;
+    opacity: 0.8;
+}
+.button-container{
+    display: flex;
+    justify-content: space-between;
+    width: 55vw;
+    min-width: 600px;
+    margin-right: 5vw;
 }
 
 .navButton{
     background-color: rgba(0,0,0,0);
     border: 0;
     color: white;
-    width: 90px;
+    /* width: 85px; */
     height: 3vh;
 }
 
 #snail{
     height: 4.5vh;
-    margin-left: 10vw;
-    margin-right: 30vw;
+    margin-left: 5vw;
+    position: fixed;
+    left: 0;
 }

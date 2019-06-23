@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Header.css';
 import { Link } from "react-router-dom";
 import LogOut from '../Authentication/LogOut'
+import Cart from '../Cart/Cart'
 import RenderToLayer from 'material-ui/internal/RenderToLayer';
 import {connect} from 'react-redux'
 import {getUser} from '../../ducks/reducer'
@@ -42,6 +43,7 @@ render(){
         
     <img id = 'snail' alt = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/>         
 
+    {/* <div className = 'button-container'>   */}
     <Link to="/">
             <button className='navButton'>Home</button>
     </Link>
@@ -66,17 +68,25 @@ render(){
             <button className='navButton'>Contact Us</button>
     </Link>
 
-{ this.props.user &&  this.props.user.email   ?    
-<LogOut/>        
+    { this.props.user &&  this.props.user.email   
+     ?    
+       <LogOut/>
+     :
+       <Link to="/login">
+         <button className='navButton'>Log In</button>
+       </Link>
+    }
 
-:
+    <Link to="/cart">
+            <button className='navButton'>Cart</button>
+    </Link>
 
-<Link to="/login">
-<button className='navButton'>Log In</button>
-</Link>
+    {/*button-container close */}
+    {/* </div>    */}
+    
+    {/*button-container close */}
+    </div>   
 
-}
-    </div>
   );
 }
 }

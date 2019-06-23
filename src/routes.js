@@ -8,10 +8,12 @@ import About from './Components/About/About'
 import Contact from './Components/Contact/Contact'
 import Register from './Components/Authentication/Register'
 import LogIn from './Components/Authentication/LogIn'
+import Cart from './Components/Cart/Cart'
 
 
 export default (
     <Switch>
+
         <Route exact path = '/' component={Home}/>
         <Route path = '/services' component={Services}/>
         <Route path = '/shop' component={Shop}/>
@@ -20,5 +22,7 @@ export default (
         <Route path = '/contact' component={Contact}/>
         <Route path={'/login'} component={LogIn} />
         <Route path={'/register'} component={Register} />
+        <Route path = {'/cart'} component={Cart} />
+
     </Switch>
 )
