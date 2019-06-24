@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import './Home.css';
-import zIndex from '@material-ui/core/styles/zIndex';
+// import zIndex from '@material-ui/core/styles/zIndex';
 
 class Home extends Component{
     constructor(){
@@ -27,7 +27,8 @@ render(){
             autoPlay= {true}
             interval= {3000}
             infiniteLoop= {true}
-            style = {{zIndex: '1'}}
+            style = {{zIndex: '-1'}}
+    
             >
                 <div className = 'carosel-img-container'>
                     <img className = 'carosel-img'

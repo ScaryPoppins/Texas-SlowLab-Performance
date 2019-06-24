@@ -46,7 +46,7 @@ render(){
 
 
 
-// console.log(this.props);
+console.log(this.props);
   return (
    <div>    
 
@@ -112,8 +112,7 @@ render(){
             onClick = {this.handleClick}
             className = 'menu-button'>
 
-            <img id='hamburger-menu'
-
+            <img id='hamburger-menu' alt='menu'
                 src="http://chesleytravel.com/images/icons/menu.png"></img>
         </button>
 
@@ -121,41 +120,41 @@ render(){
 
         <div className={this.state.menuStatus} >
         <Link to="/">
-            <button className='navButton'>Home</button>
+            <button className='navButton' id= 'under700-text'>Home</button>
     </Link>
 
     <Link to="/services">
-            <button className='navButton'>Services</button>
+            <button className='navButton' id= 'under700-text'>Services</button>
     </Link>
 
     <Link to="/shop">
-            <button className='navButton'>Shop</button>
+            <button className='navButton' id= 'under700-text'>Shop</button>
     </Link>
 
     <Link to="/testimonials">
-            <button className='navButton'>Testimonials</button>
+            <button className='navButton' id= 'under700-text'>Testimonials</button>
     </Link>
 
     <Link to="/about">
-            <button className='navButton'>About Us</button>
+            <button className='navButton' id= 'under700-text'>About Us</button>
     </Link>
 
     <Link to="/contact">
-            <button className='navButton'>Contact Us</button>
+            <button className='navButton' id= 'under700-text'>Contact Us</button>
     </Link>
 
         
     { this.props.user && this.props.user.email   
      ?    
-       <LogOut/>
+       <LogOut  id= 'under700-text'/>
      :
        <Link to="/login">
-         <button className='navButton'>Log In</button>
+         <button className='navButton' id= 'under700-text'>Log In</button>
        </Link>
     }
 
     <Link to="/cart">
-            <button className='navButton'>
+            <button className='navButton'  id= 'under700-text'>
             {/* <img src="https://cdn.onlinewebfonts.com/svg/img_19666.png" alt="cart"/> */}
             Cart
             </button>

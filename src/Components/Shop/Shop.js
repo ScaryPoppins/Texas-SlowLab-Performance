@@ -3,13 +3,16 @@ import ShopCard from './ShopCard'
 import AddCardButton from './AddCardButton'
 import axios from 'axios'
 import './Shop.css';
+import {connect} from 'react-redux';
+import {getUser} from '../../ducks/reducer';
 
 
 class Shop extends Component{
     constructor(props){
         super(props)
         this.state = {
-            products:[]
+            products:[],
+            user:[]
         }
     this.deleteOne = this.deleteOne.bind(this)
     this.getProducts = this.getProducts.bind(this)
@@ -39,7 +42,8 @@ class Shop extends Component{
     addToCart(product){
         axios
         .post('/api/cart', {product:product})
-        .then(response => console.log(response.data))
+        .then(response => console.log(response.data));
+        // this.props.getUser()
 
     }
 
@@ -52,7 +56,7 @@ class Shop extends Component{
     // }
 
     render(){
-        
+        console.log(this.props);
 
      //slow_shop is a product that of products   
         let { products } = this.state
@@ -95,4 +99,11 @@ class Shop extends Component{
     }
 }
 
-export default Shop;
+const mapStateToProps = state => state;
+
+export default connect(
+    mapStateToProps,
+    {getUser
+      // ,removeFromCart
+    }
+) (Shop);

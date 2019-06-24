@@ -54,7 +54,8 @@
 .cart-checkout-button{
     min-height: 22px;
     height: 4vh;
-    background-color: rgba(0,0,0,0);
+    color: white;
+    background-color: #3F51B5;
     border: solid 1px #BABABA;
     border-radius: 5px
 }

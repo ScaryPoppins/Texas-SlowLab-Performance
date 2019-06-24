@@ -10,7 +10,8 @@ export default function ShopCard(props) {
         <div className = 'cart-card-container'>
 
             <div className = 'cart-card-product'>
-                example product
+{/* TITLE */}
+            {props.title}
             </div>
 
             <div className = 'cart-card-quantity'>
@@ -24,7 +25,7 @@ export default function ShopCard(props) {
 
 {/* quantity number */}
             <div className = 'cart-card-quantity-amount'>
-                1
+                {props.quantity}
             </div>
 {/* add icon  */}
             <div className = 'cart-card-quantity-add'>
@@ -36,7 +37,8 @@ export default function ShopCard(props) {
             </div>
 
             <div className = 'cart-card-price'>
-                $44
+{/* PRICE               */}
+            {props.price}
             </div>
 
             <div className = 'cart-card-delete'>

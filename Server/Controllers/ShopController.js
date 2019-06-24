@@ -60,9 +60,12 @@ function addToCart(req, res){
 
   // db.get_product(product).then(response => {
   //     let productObject = response;
+
       req.session.user.cart.push(product)
-      req.session.user.total += product.price;
+      req.session.user.total += +product.price;
+      console.log(req.session.user)
       res.status(200).json(req.session.user)
+
   // })
 }
 

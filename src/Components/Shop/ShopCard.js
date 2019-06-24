@@ -51,10 +51,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-
-
-
 export default function ShopCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
@@ -62,9 +58,6 @@ export default function ShopCard(props) {
   function handleExpandClick() {
     setExpanded(!expanded);
   }
-
-
-
 
 
   return (
