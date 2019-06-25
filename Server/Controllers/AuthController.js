@@ -38,10 +38,10 @@ module.exports = {
                         res.status(403).json({error: 'USERNAME_OR_PASSWORD_INCORRECT'})
                     } else {
                         req.session.user = {
+                            // id: user[0].users_id,
                             email: user[0].email,
                             first_name: user[0].first_name,
-                            last_name: user[0].last_name
-                            ,
+                            last_name: user[0].last_name,
                             cart: [],
                             total: 0
                         }

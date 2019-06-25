@@ -6,7 +6,9 @@ import * as serviceWorker from './serviceWorker';
 import {HashRouter} from 'react-router-dom'
 import {Provider} from 'react-redux'
 import store from './ducks/store'
-
+// import StripeChecoutComponent from './Components/Checkout2/StripeCheckoutComponent'
+// import { toast } from "react-toastify";
+// import StripeCheckout from "react-stripe-checkout";
 
 ReactDOM.render(
     <HashRouter>

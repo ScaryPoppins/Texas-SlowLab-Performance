@@ -55,6 +55,9 @@ const useStyles = makeStyles(theme => ({
 
 const steps = ['Shipping address', 'Payment details', 'Review your order'];
 
+
+
+
 function getStepContent(step) {
   switch (step) {
     case 0:
@@ -68,6 +71,9 @@ function getStepContent(step) {
   }
 }
 
+
+
+
 export default function Checkout() {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
@@ -80,6 +86,8 @@ export default function Checkout() {
     setActiveStep(activeStep - 1);
   };
 
+
+  
   return (
     //   <summary>
     <React.Fragment>

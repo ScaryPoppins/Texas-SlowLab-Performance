@@ -3,6 +3,7 @@
 const initialState = {
     loading: false,
     user: [], 
+    shippingInfo: [],
     // currentProduct: [],
     // products: []
 }
@@ -19,7 +20,6 @@ export function getUser(userInfo) {
         payload: userInfo
     }
 }
-
 
 export default function reducer(state = initialState, action) {
 

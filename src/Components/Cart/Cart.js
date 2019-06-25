@@ -7,7 +7,12 @@ import CartCard from './CartCard'
 import axios from 'axios'
 import { array } from 'prop-types';
 
+import StripeCheckout from "react-stripe-checkout"
+import { toast } from "react-toastify";
 
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 class Cart extends Component {
     constructor(props) {
@@ -19,6 +24,20 @@ class Cart extends Component {
         }
     }
 
+
+  handleToken = async(token, addresses) => {
+        const response = await axios.post(
+          '/api/checkout',
+          { token }
+        );
+        const { status } = response.data;
+        console.log("Response:", response.data);
+        if (status === "success") {
+          toast("Success! Check email for details", { type: "success" });
+        } else {
+          toast("Something went wrong", { type: "error" });
+        }
+      }
 
 
     componentDidMount() {
@@ -181,12 +200,68 @@ class Cart extends Component {
 
 
                     <div className = 'cart-checkout'>
-                      <Link to="/checkout">
-                        <button className= 'cart-checkout-button'
+                      {/* <Link to="/checkout"> */}
+                        {/* <button className= 'cart-checkout-button'
                         >
                           CHECKOUT
-                        </button>
-                      </Link>
+                        </button> */}
+                      {/* </Link> */}
+
+{/* ---------------------------------------------------- */}
+
+
+                <StripeCheckout
+                        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                        token={this.handleToken}
+                        amount={products.price * 100}
+                        // name="Tesla Roadster"
+                        billingAddress
+                        shippingAddress
+                    />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>{/* cart-checkout close */}
 
                 </div>  {/* cart-sub-footer close */}
