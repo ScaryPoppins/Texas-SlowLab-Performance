@@ -32,8 +32,8 @@ app.use(cors());
           customer: customer.id,
 
           receipt_email: token.email,
-          // description: `Purchased the ${product.name}`,
-          description: title ,
+          description: `Thank you for your purchase`,
+          // description: title ,
 
 
           shipping: {

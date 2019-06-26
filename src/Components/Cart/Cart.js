@@ -30,12 +30,13 @@ const
       console.log(addresses)
         const total = this.state.total
 
-        console.log(this.state.products[0].title)    
+        // console.log(this.state.products[0].title)    
 
-        const title = this.state.products[0].title
+        // const title = this.state.products[0].title
         const response = await axios.post(
           '/api/checkout',
-          { token, addresses, total, title }
+        //   { token, addresses, total, title }
+          { token, addresses, total}
         );
         const { status } = response.data;
         console.log("Response:", response.data);
@@ -226,7 +227,7 @@ const
                         name = 'test title name'
                         billingAddress
                         shippingAddress
-                        title={this.state.products.title}
+                        // title={this.state.products.title}
         
                     />
 
