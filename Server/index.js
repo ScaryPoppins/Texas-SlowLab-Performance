@@ -10,8 +10,9 @@ const {stripeCheckout} = require('./Controllers/CheckoutController')
 
 // const stripe = require("stripe")(STRIPE_SECRET_KEY);
 // const uuid = require("uuid/v4");
-// const cors = require("cors");
-// app.use(express.json());
+const cors = require("cors");
+
+app.use(express.json());
 
 
 massive(CONNECTION_STRING).then(db => {
@@ -52,9 +53,6 @@ app.put('/api/shop', updateOne)
 app.post('/api/cart', addToCart)
 
 //cart endpoint
-
-
-//checkout endpoint
 app.post('/api/checkout', stripeCheckout)
 
 

@@ -1,5 +1,5 @@
-const express = require("express");
-const app = express();
+// const express = require("express");
+// const app = express();
 
 
 
@@ -31,7 +31,9 @@ const deleteOne = (req,res) => {
 
 //create shop
 const createOne = (req,res) => {
-  const db = req.app.get('db'),
+  const db = req.app.get('db')
+  ,
+  // console.log(req.body)
       {title, image_url, category, price, description, features } = req.body;
 
   db.createOne_shop(title, image_url, category, price, description, features)

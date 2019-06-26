@@ -23,12 +23,19 @@ class Cart extends Component {
             total: 0
         }
     }
-
+const 
 
   handleToken = async(token, addresses) => {
+      console.log(token)
+      console.log(addresses)
+        const total = this.state.total
+
+        console.log(this.state.products[0].title)    
+
+        const title = this.state.products[0].title
         const response = await axios.post(
           '/api/checkout',
-          { token }
+          { token, addresses, total, title }
         );
         const { status } = response.data;
         console.log("Response:", response.data);
@@ -56,7 +63,8 @@ class Cart extends Component {
 
     render() {
         console.log(this.props.user)
-        console.log(this.state.products)
+        console.log(this.state.products.title)
+
 
         let { products } = this.state
 
@@ -116,7 +124,7 @@ class Cart extends Component {
         })
 
 
-        console.log(displayItems)
+        console.log(displayItems)  //good
 
         console.log(products.quantity)
         console.log(products.price)
@@ -208,15 +216,18 @@ class Cart extends Component {
                       {/* </Link> */}
 
 {/* ---------------------------------------------------- */}
-
+ 
 
                 <StripeCheckout
-                        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                        stripeKey="pk_test_N28zSeEZWZAop3ldDO2V06KK00dbhX8RRs"
                         token={this.handleToken}
-                        amount={products.price * 100}
-                        // name="Tesla Roadster"
+                        amount={this.state.total * 100}
+                        // name = {this.state.products.title}
+                        name = 'test title name'
                         billingAddress
                         shippingAddress
+                        title={this.state.products.title}
+        
                     />
 
 

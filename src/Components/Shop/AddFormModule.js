@@ -46,8 +46,8 @@ export default function AddFormModule(props) {
   }
 
   function handleSubmit(){
-    // let { title, image, category, price, description, features, } = ;
-
+    // let { title, image_url, category, price, description, features } = ;
+// console.log(title, image_url, category, price, description, features)
     axios
         .post('/api/shop', { title:title, image_url:image_url, category:category, price:price, description:description, features:features })
         .then (response => {
