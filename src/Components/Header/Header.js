@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Axios from 'axios'
 import './Header.css';
 import { Link } from "react-router-dom";
 import LogOut from '../Authentication/LogOut'
@@ -29,13 +30,15 @@ class Header extends Component {
 
 
   componentDidMount(){
-        this.props.getUser()
-//         // Axios.get('/auth/user')
-//                 // .then(response =>
-//                 //          this.setState({user:response.data}))
-//                 // // .then(response =>   
-//                 // //         this.setState(this.state.loggedIn = true))
-//                 // .catch((error) => console.log(error `in Header componentDidMount`))
+
+        Axios.get('/auth/user')
+                .then(response => {
+                        this.props.getUser(response.data)
+                })
+                        //  this.setState({user:response.data}))
+                // .then(response =>   
+                //         this.setState(this.state.loggedIn = true))
+                .catch(error => console.log(error, `in Header componentDidMount`))
   }
 
 
