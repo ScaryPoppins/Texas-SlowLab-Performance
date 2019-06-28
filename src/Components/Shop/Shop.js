@@ -89,6 +89,12 @@ class Shop extends Component{
         return(
             <main>
                 
+                <div> 
+                    Hi Mark, Please check out our product #9
+                </div>
+
+
+
             <div className='dashboard'>
                 {products ? displayProducts : 'No products yet'}
                 <AddCardButton getProducts={this.getProducts}/>

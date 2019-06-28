@@ -53,6 +53,7 @@ class Login extends Component {
             password: '',
             is_admin: '',
             user: [],
+            // cart: [],
             redirect: false
             
         }

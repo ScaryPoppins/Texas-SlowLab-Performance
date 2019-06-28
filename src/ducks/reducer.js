@@ -4,6 +4,7 @@ const initialState = {
     loading: false,
     user: [], 
     shippingInfo: [],
+
     // currentProduct: [],
     // products: []
 }

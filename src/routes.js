@@ -10,7 +10,7 @@ import Register from './Components/Authentication/Register'
 import LogIn from './Components/Authentication/LogIn'
 import Cart from './Components/Cart/Cart'
 // import Checkout from './Components/Checkout/Checkout'
-import StripeCheckoutComponent from './Components/Checkout2/StripeCheckoutComponent'
+
 
 
 export default (

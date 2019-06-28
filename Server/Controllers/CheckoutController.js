@@ -10,12 +10,44 @@ app.use(cors());
 
   // stripe checkout
  const stripeCheckout =  async (req, res) => {
+  const db = req.app.get('db')
     console.log("Request:", req.body);
   
     let error;
     let status;
+    let address;
+
+    const {token, total, products} = req.body;
+
+
+
+var checkoutItems = () => {
+
+  let items = '';
+  for(i=0; i<products.length; i++){
+      items += `${products[i].title}`
+        if(i < products.length-1){
+          items+=', '
+        }
+      }
+      return items
+}
+
+
+
     try {
-      const { product, token, total} = req.body;
+
+      let items = '';
+      for(i=0; i<products.length; i++){
+          items += `${products[i].title}`
+            if(i < products.length-1){
+              items+=', '
+            }
+      }
+      
+      // checkoutItems()
+
+
   
       const customer = await stripe.customers.create({
         email: token.email,
@@ -32,7 +64,7 @@ app.use(cors());
           customer: customer.id,
 
           receipt_email: token.email,
-          description: `Thank you for your purchase`,
+          description: `${items}`,
           // description: title ,
 
 
@@ -53,12 +85,31 @@ app.use(cors());
       );
       console.log("Charge:", { charge });
       status = "success";
+      address = {charge}
+
     } catch (error) {
       console.error("Error:", error);
       status = "failure";
     }
-  
-    res.json({ error, status });
+    
+    if (status = 'success'){
+
+//put things into database----------------------------------------------------------------------
+
+     db.create_order(req.session.user.id, total, checkoutItems())
+
+
+//-----------------------------------------------
+      req.session.user.cart = []
+      req.session.user.total = 0
+
+    }
+    let cart = req.session.user.cart
+
+
+
+
+    res.json({ error, status, address, cart});
   };
   
 

@@ -17,6 +17,9 @@
 -- ALTER COLUMN tags SET DATA TYPE TEXT [] USING ARRAY [tags];
 
 
+-- ALTER TABLE slow_shop
+-- ADD COLUMN users_id INTEGER REFERENCES slow_users(users_id)
+
 ----------------------------------------------------------------------------------------
 -- CREATE TABLE slow_users (
 -- users_id SERIAL PRIMARY KEY,
@@ -42,6 +45,21 @@
 -- )
 
 
+-------------------------------------------------------
 
-
-
+-- CREATE TABLE slow_orders
+-- (
+-- orders_id SERIAL PRIMARY KEY,
+-- product_id INT[],
+-- customer_id INT,
+-- quantity INT[],
+-- delivered BOOLEAN DEFAULT false,
+-- total DECIMAL,
+-- address TEXT,
+-- city TEXT,
+-- state TEXT,
+-- zip_code TEXT,
+-- notes TEXT[],
+-- shop_id INTEGER REFERENCES slow_shop(shop_id),
+-- users_id INTEGER REFERENCES slow_users(users_id)
+-- );

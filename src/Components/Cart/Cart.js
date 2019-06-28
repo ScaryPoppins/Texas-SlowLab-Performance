@@ -11,6 +11,7 @@ import StripeCheckout from "react-stripe-checkout"
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import { SlowBuffer } from 'buffer';
 
 toast.configure();
 
@@ -25,23 +26,63 @@ class Cart extends Component {
     }
 const 
 
+
+async placeOrder(bulkAddress){
+//   let {total, cart, id} = this.props.reducer.cart;
+
+//   console.log(this.props)
+//           let customer_id = id;
+//           console.log(customer_id)
+//           let product_id = '{';
+//           let quantity = '{';
+//           let {address_line1, address_line2, address_city, address_state, address_zip} = bulkAddress
+//           let city = address_city
+//           let state = address_state
+//           let zip = address_zip
+//           let address = `${address_line1}`
+//           if(address_line2 !== null){
+//               address += ` ${address_line2}`
+//           }
+//           console.log(address, city, state, zip)
+          
+//           for(let i=0; i<cart.length; i++){
+//               product_id += cart[i].product_id
+//               quantity += cart[i].quantity
+              
+
+//               if(i<cart.length-1){
+//                   product_id += ', '
+//                   quantity += ', '
+//               } else {
+//                   product_id += '}'
+//                   quantity += '}'
+//               }
+//           }
+          
+//           // console.log(product_id)
+//           // console.log(quantity)
+
+//           axios.post('/api/order', {product_id, customer_id, quantity, total, address, city, state, zip})
+}
+
   handleToken = async(token, addresses) => {
       console.log(token)
       console.log(addresses)
-        const total = this.state.total
+        const {total, products} = this.state
 
-        // console.log(this.state.products[0].title)    
-
-        // const title = this.state.products[0].title
         const response = await axios.post(
           '/api/checkout',
-        //   { token, addresses, total, title }
-          { token, addresses, total}
+          { token, addresses, total, products}
         );
-        const { status } = response.data;
+        const { status, address, cart } = response.data;
         console.log("Response:", response.data);
         if (status === "success") {
           toast("Success! Check email for details", { type: "success" });
+          this.setState({products:cart})
+          console.log(address.charge.shipping.address)
+
+          this.placeOrder(address.charge.source)
+
         } else {
           toast("Something went wrong", { type: "error" });
         }
@@ -63,39 +104,30 @@ const
     // }
 
     render() {
-        console.log(this.props.user)
-        console.log(this.state.products.title)
-
+        // console.log(this.props.user)
+        // console.log(this.state.products.title)
 
         let { products } = this.state
+        console.log(products)
 
         var distinct = (value, index, self) => {
             return self.indexOf(value) === index;
         }
-        
 
-        // const disctinctItems = products.filter(distinct)
-        // const disctinctItems = [...new Set(products.map(x => x.id))]
-
-        const distinctItems = Array.from(new Set(products.map(s => s.id)))
-        .map(id => {
+        const distinctItems = Array.from(new Set(products.map(s => s.shop_id)))
+        .map(shop_id => {
             return {
-                id: id,
-                title: products.find(s => s.id === id).title,
-                price: products.find(s => s.id === id).price
+              shop_id: shop_id,
+                title: products.find(s => s.shop_id === shop_id).title,
+                price: products.find(s => s.shop_id === shop_id).price
         }
         })
 
-
-
-        console.log(distinctItems)
-
-        console.log(products)
         
         let displayItems =distinctItems.map(cartItem => {
             let count = 0
             for(let i=0;i<products.length;i++){
-              if(products[i].id === cartItem.id){
+              if(products[i].shop_id === cartItem.shop_id){
                 count++
               }
             }
@@ -103,7 +135,6 @@ const
         //   })
 
         
-
         return(
             <div>
         <CartCard 
@@ -114,9 +145,8 @@ const
         price={cartItem.price}
         products={cartItem.products}
         user={cartItem.user}   
-        //fix QUANTITY... need to count how many of each item are there
         quantity={count}
-        
+    
         />
         
         </div>
@@ -125,12 +155,12 @@ const
         })
 
 
-        console.log(displayItems)  //good
+        // console.log(displayItems)  //good
 
-        console.log(products.quantity)
-        console.log(products.price)
-        console.log(this.state.products.quantity)
-        console.log(this.state.products.price)
+        // console.log(products.quantity)
+        // console.log(products.price)
+        // console.log(this.state.products.quantity)
+        // console.log(this.state.products.price)
 
         return (
             <main>
@@ -143,34 +173,7 @@ const
                 </div>
 
                 <div className = 'cart-sub-products'>
-                    {/* {this.props.user
-                    ?
-                        this.props.user.cart
-                        ?
-                            this.props.user.cart.map((item, index) => {
-                                return(
-                                    <div key={index}>
 
-                                    {item[0].title}
-                                    <img src={item[0].image} />
-                                    ${item[0].price}
-
-                                    <button 
-                                    // commented out // onClick={() => this.props.removeFromCart(this.props.id, this.props.price)}
-                                    >
-                                        Execute
-                                    </button>
-
-                                    </div>
-                                )
-                            })
-                        :
-                        //comment //Add items to cart
-                            null
-                    :
-                       //comment //Please log in
-                        null
-                    } */}
 
 {/* cart-card headings */}
                   <div className = 'cart-card-container'>
@@ -216,39 +219,22 @@ const
                         </button> */}
                       {/* </Link> */}
 
-{/* ---------------------------------------------------- */}
- 
+  
+
+ {/* ---Stripe Checkout--- */}
 
                 <StripeCheckout
                         stripeKey="pk_test_N28zSeEZWZAop3ldDO2V06KK00dbhX8RRs"
                         token={this.handleToken}
                         amount={this.state.total * 100}
-                        // name = {this.state.products.title}
-                        name = 'test title name'
+                        name = {'slow_shop'}
+                        // name = 'test title name'
                         billingAddress
                         shippingAddress
-                        // title={this.state.products.title}
+                        // products = {this.state.products.title}
+                        // description={this.state.products.title}
         
                     />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
