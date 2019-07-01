@@ -24,9 +24,9 @@ class Shop extends Component{
         this.getProducts()
     }
 
-    deleteOne(id) {
+    deleteOne(shop_id) {
         axios
-            .delete(`/api/shop/${id}`)
+            .delete(`/api/shop/${shop_id}`)
             .then(() => this.componentDidMount())
             .catch(error => console.log(`Dashboard-axiosDelete: ${error}`))
     }
@@ -65,9 +65,9 @@ class Shop extends Component{
         return(
             <div>
         <ShopCard 
-        key={slow_shop.id}
+        key={slow_shop.shop_id}
         slow_shop={slow_shop}
-        id={slow_shop.id}
+        shop_id={slow_shop.shop_id}
         title={slow_shop.title}
         image_url= {slow_shop.image_url}
         description={slow_shop.description}
@@ -88,10 +88,7 @@ class Shop extends Component{
     
         return(
             <main>
-                
-                <div> 
-                    Hi Mark, Please check out our product #9
-                </div>
+            
 
 
 

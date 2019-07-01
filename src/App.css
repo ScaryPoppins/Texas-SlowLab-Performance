@@ -1,9 +1,11 @@
 .App {
   text-align: center;
-  background-color: #BABABA;
-  /* background-color: #EDEDEE; */
+  /* background-color: #BABABA; */
   min-height: 100vh;
   /* width: 100vw; */
+  margin-top: 5vh;
+  background-image: url('https://www.textures.com/system/categories/95266/frontend-large.jpg');
+
 }
 main {
   min-height: 80vh;

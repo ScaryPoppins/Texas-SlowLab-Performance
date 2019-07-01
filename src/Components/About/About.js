@@ -20,16 +20,14 @@ documentation found on  */}
 
 <h1>About Us</h1>
 <div className='swaps-sentence'>
-    <h3>Texas Speedlab Performance specializes in &nbsp;</h3>
-     <h1>K20</h1> 
-     <h3 > &nbsp; Swaps for Mustangs, and F-150’s.</h3>
+    <h2>Texas Speedlab Performance specializes in K20 Swaps for Mustangs, and F-150’s.</h2>
 </div>
 
-<p>Contact</p>
-<p>409-867-5309</p>
+<h3>Contact</h3>
+<h3>409-867-5309</h3>
 
 <h2>180 South Ann Street <br/> Sour Lake, TX 77659 </h2>
-
+<br/>
 
 
 <AboutMap/>

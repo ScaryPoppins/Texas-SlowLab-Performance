@@ -18,7 +18,7 @@
 .button-container-over700{
     display: flex;
     justify-content: space-between;
-    width: 55vw;
+    width: 50vw;
     min-width: 600px;
     margin-right: 5vw;
 }

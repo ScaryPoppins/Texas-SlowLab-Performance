@@ -1,29 +1,53 @@
-.services-widebody{
-    background-image: url('https://i.pinimg.com/564x/df/07/b6/df07b64e649b116d848e1c6872a3b92d.jpg');
-    height: 40vh;
-    width: 100%;
-    background-size: stretch;
-    /* background-repeat: no-repeat; */
-    background-position: center center;
-
-}
-.services-wing{
-    background-image: url('https://i.pinimg.com/564x/1a/8e/a7/1a8ea7dd3303ffc5927a6f8e34dd2583.jpg');
-    height: 40vh;
-    width: 100%;
-    background-size: stretch;
-    /* background-repeat: no-repeat; */
-    background-position: center center;
+.services-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    align-items: center;
 
 }
 
-.services-exhaust{
-    background-image: url('https://i.pinimg.com/564x/81/c2/74/81c2742407885d671d8873e207b76abe.jpg');
-    height: 40vh;
-    width: 100%;
-    background-size: stretch;
-    /* background-repeat: no-repeat; */
-    background-position: center center;
+
+.services-card{
+    min-height: 200px;
+    min-width: 300px;
+    width: 80vw;
+    height: 50vh;
+    margin-top: 4vh;
+    margin-bottom: 6vh;
+    border: 1px dotted #696969;
+}
+
+.services-sub-section{
+    display: flex;
+    padding: 2vh;
+    margin: 0;
+    /* border: 1px dotted blue; */
+}
+
+.services-img-container{
+    width: 46vh;
+    height: 46vh;
+    overflow: none;
+}
+.services-img{
+    width: 46vh;
+    height: 46vh;
+    overflow: none;
+    border-radius: 5px;
+}
+
+.services-description-container{
+    margin: 5vh;
+    padding: 1vh;
+}
+.services-description{
+    margin-bottom: 2vh;
+    background-color: rgba(245,245,245,0.9);
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
 
 }
-/* http://boredomtherapy.com/wp-content/uploads/2016/05/13-horrible-car-repairs.jpg */

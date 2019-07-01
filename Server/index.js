@@ -7,6 +7,8 @@ const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, STRIPE_SECRET_KEY } = pr
 const {getShop, deleteOne, createOne, updateOne, addToCart} = require('./Controllers/ShopController')
 const {registerUser, loginUser, getUser, logOutUser} = require('./Controllers/AuthController');
 const {stripeCheckout} = require('./Controllers/CheckoutController')
+const {getOrders} = require('./Controllers/OrdersController')
+const {getServices} = require('./Controllers/ServicesController')
 
 // const stripe = require("stripe")(STRIPE_SECRET_KEY);
 // const uuid = require("uuid/v4");
@@ -47,7 +49,7 @@ app.get('/auth/user', getUser);
 
 // shop endpoints
 app.get('/api/shop', getShop);
-app.delete('/api/shop/:id', deleteOne);
+app.delete('/api/shop/:shop_id', deleteOne);
 app.post('/api/shop', createOne);
 app.put('/api/shop', updateOne)
 app.post('/api/cart', addToCart)
@@ -55,7 +57,11 @@ app.post('/api/cart', addToCart)
 //cart endpoint
 app.post('/api/checkout', stripeCheckout)
 
+//orders endpoint
+app.get('/api/orders', getOrders)
 
+//services endpoint
+app.get('/api/services', getServices) 
 
 
 

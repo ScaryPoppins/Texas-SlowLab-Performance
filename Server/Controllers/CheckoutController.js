@@ -96,7 +96,7 @@ var checkoutItems = () => {
 
 //put things into database----------------------------------------------------------------------
 
-     db.create_order(req.session.user.id, total, checkoutItems())
+     db.create_order(req.session.user.id, req.session.user.id, total, checkoutItems())
 
 
 //-----------------------------------------------

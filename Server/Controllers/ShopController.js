@@ -22,8 +22,8 @@ const getShop = async (req, res) => {
 //delete shop
 const deleteOne = (req,res) => {
   const db = req.app.get('db'),
-      { id } = req.params;
-  db.deleteOne_shop( id )
+      { shop_id } = req.params;
+  db.deleteOne_shop( shop_id )
       .then(() => res.sendStatus(200))
       .catch(error => res.status(500).send(`DELETEoNE: ${error}`))
 }
@@ -46,9 +46,9 @@ const createOne = (req,res) => {
 const updateOne = (req,res) => {
   console.log(req.body)
   const db = req.app.get('db'),
-      { id, title, image_url, category, price, description, features } = req.body;
+      { shop_id, title, image_url, category, price, description, features } = req.body;
 
-  db.updateOne_shop( id, title, image_url, category, price, description, features )
+  db.updateOne_shop( shop_id, title, image_url, category, price, description, features )
       .then(response => res.status(200).json(response))
       .catch(error => res.status(500).send(`UPDATEoNE: ${error}`))
 }

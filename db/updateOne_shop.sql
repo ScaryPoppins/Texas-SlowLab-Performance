@@ -6,4 +6,4 @@ price = $5,
 description = $6,
 features = $7
 
-WHERE id = $1;
+WHERE shop_id = $1;

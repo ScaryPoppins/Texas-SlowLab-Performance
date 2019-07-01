@@ -17,12 +17,13 @@ const useStyles = makeStyles(theme => ({
   }, 
   card: {  
     width: '300px',
-    height: '390px',
+    height: '420px',
     marginTop: '6vh',
     display: 'flex',
     justifyContent: 'center',
     alignItems:'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    backgroundColor: 'rgba(245,245,245,0.9)',
   },
 
 }));

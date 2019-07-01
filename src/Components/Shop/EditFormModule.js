@@ -55,7 +55,7 @@ export default function EditFormModule(props) {
     // let { title, image, category, price, description, features, } = ;
 
     axios
-        .put('/api/shop', { id:props.slow_shop.id, title:title, image_url:image_url, category:category, price:price, description:description, features:features })
+        .put('/api/shop', { shop_id:props.slow_shop.shop_id, title:title, image_url:image_url, category:category, price:price, description:description, features:features })
         .then (response => {
             // console.log(response)
             props.getProducts()
@@ -91,7 +91,7 @@ export default function EditFormModule(props) {
 
 {/* EDIT button      */}
           <IconButton aria-label="Info"
-          onClick={() => props.editOneFn(props.id)}
+          onClick={() => props.editOneFn(props.shop_id)}
           onClick={handleClickOpen}
           >
             <MoreVertIcon />

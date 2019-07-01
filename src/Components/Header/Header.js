@@ -55,7 +55,7 @@ console.log(this.props);
 
   <div className="navHeader-over700">
         
-    <img id = 'snail-over700' alt = 'snail' src='https://image.flaticon.com/icons/svg/87/87989.svg'/> 
+    <img id = 'snail-over700' alt = 'snail' src='https://image.flaticon.com/icons/svg/871/871909.svg'/> 
 
     <div className = 'button-container-over700'>  
     <Link to="/">
@@ -70,17 +70,17 @@ console.log(this.props);
             <button className='navButton'>Shop</button>
     </Link>
 
-    <Link to="/testimonials">
+    {/* <Link to="/testimonials">
             <button className='navButton'>Testimonials</button>
-    </Link>
+    </Link> */}
 
     <Link to="/about">
             <button className='navButton'>About Us</button>
     </Link>
 
-    <Link to="/contact">
+    {/* <Link to="/contact">
             <button className='navButton'>Contact Us</button>
-    </Link>
+    </Link> */}
 
         
     { this.props.user && this.props.user.email   
@@ -91,6 +91,12 @@ console.log(this.props);
          <button className='navButton'>Log In</button>
        </Link>
     }
+    <Link to="/orders">
+            <button className='navButton'>
+            {/* <img src="https://cdn.onlinewebfonts.com/svg/img_19666.png" alt="cart"/> */}
+            Orders
+            </button>
+    </Link>
 
     <Link to="/cart">
             <button className='navButton'>
@@ -134,17 +140,17 @@ console.log(this.props);
             <button className='navButton' id= 'under700-text'>Shop</button>
     </Link>
 
-    <Link to="/testimonials">
+    {/* <Link to="/testimonials">
             <button className='navButton' id= 'under700-text'>Testimonials</button>
-    </Link>
+    </Link> */}
 
     <Link to="/about">
             <button className='navButton' id= 'under700-text'>About Us</button>
     </Link>
 
-    <Link to="/contact">
+    {/* <Link to="/contact">
             <button className='navButton' id= 'under700-text'>Contact Us</button>
-    </Link>
+    </Link> */}
 
         
     { this.props.user && this.props.user.email   
@@ -156,12 +162,19 @@ console.log(this.props);
        </Link>
     }
 
-    <Link to="/cart">
+        <Link to="/orders">
+            <button className='navButton'>
+            {/* <img src="https://cdn.onlinewebfonts.com/svg/img_19666.png" alt="cart"/> */}
+            Orders
+            </button>
+        </Link>
+
+        <Link to="/cart">
             <button className='navButton'  id= 'under700-text'>
             {/* <img src="https://cdn.onlinewebfonts.com/svg/img_19666.png" alt="cart"/> */}
             Cart
             </button>
-    </Link>
+        </Link>
         </div>
 
 

@@ -24,6 +24,7 @@ import EditFormModule from './EditFormModule'
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
+    backgroundColor: 'rgba(245,245,245,0.9)'
   },
   media: {
     height: 0,
@@ -62,7 +63,7 @@ export default function ShopCard(props) {
 
   return (
     <Card className={classes.card}
-       style={{width: '300px', minHeight: '390px', marginTop: '6vh'}}>
+       style={{width: '300px', minHeight: '420px', marginTop: '6vh'}}>
 
       <CardHeader
         avatar={
@@ -123,11 +124,18 @@ export default function ShopCard(props) {
 
 
 {/* delete button */}
-        <Link to='/shop' onClick={() => props.deleteOneFn(props.id)}>
+
+
+
+{/* // {this.props.user.is_admin === true ? */}
+        <Link to='/shop' onClick={() => props.deleteOneFn(props.shop_id)}>
             <IconButton  aria-label="Delete" >
                 <DeleteOutlinedIcon />
             </IconButton>
         </Link>
+  {/* : null} */}
+
+
 
 {/* old edit button */}
         {/* <Link to='/shop' onClick={() => props.editOneFn(props.id)}>

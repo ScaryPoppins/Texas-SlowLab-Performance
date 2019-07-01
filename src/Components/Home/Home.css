@@ -34,21 +34,3 @@
 }
 
 
-.home-truck{
-    background-image: url('https://i.kym-cdn.com/photos/images/original/000/969/008/df7.jpg');
-    height: 40vh;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-}
-
-.home-lambo{
-    background-image: url('http://txspeedlabperformance.com/wp-content/themes/advance-automobile-pro/assets/images/video/videobg.jpg');
-    height: 40vh;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-}

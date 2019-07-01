@@ -5,7 +5,8 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 // import {add} from '../Images/add'
 
 export default function ShopCard(props) {
-
+console.log(props.user)
+console.log(props)
     return (
         <div className = 'cart-card-container'>
 
@@ -42,9 +43,15 @@ export default function ShopCard(props) {
             </div>
 
             <div className = 'cart-card-delete'>
+
+
+
             <IconButton  aria-label="Delete" >
                 <DeleteOutlinedIcon />
             </IconButton>
+
+
+
             </div>
 
         </div>

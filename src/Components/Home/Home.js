@@ -30,37 +30,50 @@ render(){
             style = {{zIndex: '-1'}}
     
             >
+
                 <div className = 'carosel-img-container'>
-                    <img className = 'carosel-img'
-                     alt = 'civic ricer car' 
-                     src="https://mindovermotor.files.wordpress.com/2011/07/ricer_civic_2.jpg?w=392&h=294" 
+                    <img className = 'carosel-img' 
+                    alt = 'lightweight racing seat'
+                    src="http://boredomtherapy.com/wp-content/uploads/2016/05/13-horrible-car-repairs.jpg" 
                     />
-                    <p className="legend">Civic dream car.   V4 power at it's finest.</p>
+                    <p className="legend">Now offering Lightweight seat modifications</p>
                 </div>
 
+                <div className = 'carosel-img-container'>
+                    <img className = 'carosel-img'
+                     alt = 'wooden roll cage' 
+                     src="https://postmediadriving.files.wordpress.com/2019/02/wood-mods-02-wooden-prius.jpg?w=800&crop=1&strip=all&quality=100" 
+                    />
+                    <p className="legend">Bumper replacement services.</p>
+                </div>
+                
                 <div className = 'carosel-img-container'>
                     <img className = 'carosel-img' 
                     alt = 'truck' 
-                    src="https://scontent-dfw5-1.xx.fbcdn.net/v/t1.0-9/43103816_2164699100435732_6069210842799276032_n.jpg?_nc_cat=111&_nc_oc=AQl-IHj6Uk16EslBRjCdUxwby8KjvMyj03a25ZHOeEqpLoWmG7rBnwslWwEMg7zaZWMGZzIAw_nNoO-4QGoM1xmo&_nc_ht=scontent-dfw5-1.xx&oh=0c6129699abf982e3177ac3243c52ba3&oe=5D825CC2" 
+                    src="https://api.pddataservices.com/images?url=https://postmediadriving.files.wordpress.com/2019/02/wood-mods-01-plywood-lexus-gs-2.jpg&w=960&h=480" 
                     />
-                    <p className="legend">K20 powered truck.   Hauls less, weighs less.  V4 Power!</p>
+                    <p className="legend">custom stereo systems!</p>
                 </div>
 
                 <div className = 'carosel-img-container'>
                     <img className = 'carosel-img' 
-                    alt = 'v4 Mustang'
-                    src="https://engineswapdepot.com/wp-content/uploads/2017/06/Foxbody-Mustang-with-a-Turbo-K20-K24-02.jpg" 
+                    alt = 'supercharger'
+                    src="https://i.kym-cdn.com/photos/images/original/000/969/008/df7.jpg" 
                     />
-                    <p className="legend">K20 powered Foxbody Mustang.  V4 Power!</p>
+                    <p className="legend">Supercharger appearance hood ornaments</p>
                 </div>
+
+
 
                 <div className = 'carosel-img-container'>
                     <img className = 'carosel-img' 
-                    alt = 'v6 Mustang'
-                    src="https://static.carthrottle.com/workspace/uploads/comments/img_7908-5457655d7cc11.jpg" 
+                    alt = 'custom body kit'
+                    src="https://mgb1967.com/wp-content/uploads/2018/05/Plywood-ground-effects-on-rust-bucket.jpg" 
                     />
-                    <p className="legend">V6 powered!!! As seen in Fast in Furious</p>
+                    <p className="legend">custom body kits</p>
                 </div>
+
+
             </Carousel>
     </div>
 

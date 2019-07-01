@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import {getUser} from '../../ducks/reducer';
 import './Cart.css'
 import CartCard from './CartCard'
 import axios from 'axios'
-import { array } from 'prop-types';
+// import { array } from 'prop-types';
 
 import StripeCheckout from "react-stripe-checkout"
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { SlowBuffer } from 'buffer';
+// import { SlowBuffer } from 'buffer';
 
 toast.configure();
 
@@ -79,7 +79,7 @@ async placeOrder(bulkAddress){
         if (status === "success") {
           toast("Success! Check email for details", { type: "success" });
           this.setState({products:cart})
-          console.log(address.charge.shipping.address)
+          // console.log(address.charge.shipping.address)
 
           this.placeOrder(address.charge.source)
 
@@ -104,8 +104,9 @@ async placeOrder(bulkAddress){
     // }
 
     render() {
-        // console.log(this.props.user)
-        // console.log(this.state.products.title)
+        console.log(this.props.user)
+        console.log(this.state.products)
+
 
         let { products } = this.state
         console.log(products)
@@ -167,9 +168,10 @@ async placeOrder(bulkAddress){
               <div className = 'cart-container'>
 
 
-                <div className='cart-sub-header'>
-                {/* pull user object and map over it */}
-                My Cart
+                <div className='cart-sub-header' id='cart-card-head'>
+
+                {this.props.user.id > 0 ? `${this.props.user.first_name}'s Cart` : 'My Cart'}
+
                 </div>
 
                 <div className = 'cart-sub-products'>
@@ -177,16 +179,16 @@ async placeOrder(bulkAddress){
 
 {/* cart-card headings */}
                   <div className = 'cart-card-container'>
-                      <div className = 'cart-card-product'>
+                      <div className = 'cart-card-product' id='cart-card-head' id='cart-card-head'>
                           Product
                       </div>
-                      <div className = 'cart-card-quantity'>
+                      <div className = 'cart-card-quantity' id='cart-card-head'>
                           Quantity
                       </div>
-                      <div className = 'cart-card-price'>
+                      <div className = 'cart-card-price' id='cart-card-head'>
                           Price
                       </div>
-                      <div className = 'cart-card-delete'>
+                      <div className = 'cart-card-delete' id='cart-card-head'>
                       </div>
                   </div>
 

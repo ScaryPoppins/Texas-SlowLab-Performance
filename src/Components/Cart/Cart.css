@@ -1,5 +1,5 @@
 .cart-container{
-    background-color: #ffffff;
+    background-color: rgba(245,245,245,0.9);
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -21,6 +21,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-display: 499;
 
 }
 
@@ -58,5 +59,9 @@
     background-color: #3F51B5;
     border: solid 1px #BABABA;
     border-radius: 5px
+}
+#cart-card-head{
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
