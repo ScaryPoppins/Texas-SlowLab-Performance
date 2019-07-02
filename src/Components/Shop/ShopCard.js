@@ -61,6 +61,7 @@ export default function ShopCard(props) {
   }
 
 
+  
   return (
     <Card className={classes.card}
        style={{width: '300px', minHeight: '420px', marginTop: '6vh'}}>

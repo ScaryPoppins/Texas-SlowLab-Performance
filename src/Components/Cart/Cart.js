@@ -179,7 +179,7 @@ async placeOrder(bulkAddress){
 
 {/* cart-card headings */}
                   <div className = 'cart-card-container'>
-                      <div className = 'cart-card-product' id='cart-card-head' id='cart-card-head'>
+                      <div className = 'cart-card-product' id='cart-card-head'>
                           Product
                       </div>
                       <div className = 'cart-card-quantity' id='cart-card-head'>

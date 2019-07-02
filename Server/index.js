@@ -14,6 +14,7 @@ const {getServices} = require('./Controllers/ServicesController')
 // const uuid = require("uuid/v4");
 const cors = require("cors");
 
+app.use( express.static( `${__dirname}/../build` ))
 app.use(express.json());
 
 
