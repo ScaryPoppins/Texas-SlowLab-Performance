@@ -6,7 +6,13 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 export default function ShopCard(props) {
 console.log(props.user)
-console.log(props)
+console.log(props.shop_id)
+
+console.log(props.product)
+console.log(props.cartItem)
+
+
+
     return (
         <div className = 'cart-card-container'>
 
@@ -18,6 +24,8 @@ console.log(props)
             <div className = 'cart-card-quantity'>
 
 {/* remove icon */}
+
+
             <div className = 'cart-card-quantity-remove'>
               <button className = 'quantity-button'>  
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
@@ -46,7 +54,8 @@ console.log(props)
 
 
 
-            <IconButton  aria-label="Delete" >
+            <IconButton  aria-label="Delete" 
+              onClick = {() => props.deleteCartItem(props.cartItem.shop_id, props.quantity)}>
                 <DeleteOutlinedIcon />
             </IconButton>
 

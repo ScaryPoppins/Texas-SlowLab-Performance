@@ -103,9 +103,24 @@ async placeOrder(bulkAddress){
     //     .catch(error => console.log(`Dashboard-axiosGet: ${error}`))
     // }
 
+
+    // if shop_id matches the id passed in from the CartCard component, 
+    //then remove all items with that id from the cartItems array created below
+
+     deleteCartItem = (id, quantity) => {
+       console.log(id)
+        axios
+          .delete(`/api/cart/${id}?quantity=${quantity}`)
+          .then(() => this.componentDidMount())
+          .catch(error => console.log(`Cart.js Delete Error: ${error}`))
+     }
+
+  
+
     render() {
         console.log(this.props.user)
         console.log(this.state.products)
+        
 
 
         let { products } = this.state
@@ -135,7 +150,8 @@ async placeOrder(bulkAddress){
             // return e+' - quantity = '+count
         //   })
 
-        
+        console.log(cartItem)
+
         return(
             <div>
         <CartCard 
@@ -147,6 +163,8 @@ async placeOrder(bulkAddress){
         products={cartItem.products}
         user={cartItem.user}   
         quantity={count}
+        cartItem={cartItem}
+        deleteCartItem={this.deleteCartItem}
     
         />
         
@@ -170,7 +188,7 @@ async placeOrder(bulkAddress){
 
                 <div className='cart-sub-header' id='cart-card-head'>
 
-                {this.props.user.id > 0 ? `${this.props.user.first_name}'s Cart` : 'My Cart'}
+                {this.props.user ? `${this.props.user.first_name}'s Cart` : 'My Cart'}
 
                 </div>
 
@@ -237,28 +255,6 @@ async placeOrder(bulkAddress){
                         // description={this.state.products.title}
         
                     />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

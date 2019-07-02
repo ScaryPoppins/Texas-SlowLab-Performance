@@ -65,7 +65,7 @@ function addToCart(req, res){
 
       req.session.user.cart.push(product)
       req.session.user.total += +product.price;
-      console.log(req.session.user)
+      // console.log(req.session.user)
       res.status(200).json(req.session.user)
 
   // })
