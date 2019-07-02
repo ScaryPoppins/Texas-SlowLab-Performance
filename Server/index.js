@@ -67,6 +67,6 @@ app.get('/api/services', getServices)
 
 
 app.listen(SERVER_PORT, () => console.log(`Listening on port ${SERVER_PORT}`));
-app.get("/", (req, res) => {
-  res.send("Add your Stripe Secret Key to the .require('stripe') statement!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Add your Stripe Secret Key to the .require('stripe') statement!");
+// });
