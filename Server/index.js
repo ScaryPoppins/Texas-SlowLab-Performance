@@ -15,6 +15,7 @@ const {getServices} = require('./Controllers/ServicesController')
 const cors = require("cors");
 
 app.use( express.static( `${__dirname}/../build` ))
+
 app.use(express.json());
 
 
